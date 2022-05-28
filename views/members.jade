@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} of #{membersText}
+  ul 
+    each d, i in memberData
+      li 
+        a(href="./member?usertag=" + d.tag.replace('#','')) #{d.name}

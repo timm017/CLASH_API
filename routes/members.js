@@ -4,10 +4,11 @@ var router = express.Router();
 const fs = require("fs");
 var PropertiesReader = require("properties-reader");
 var myData;
-getJSONTestData();
 
 /* GET members page. */
 router.get("/", function (req, res, next) {
+  getJSON();
+  // getJSONTestData();
   res.render("members", {
     title: "Members",
     membersText: "Old Rebels",
@@ -27,9 +28,6 @@ function getJSONTestData() {
     if (err) {
       return console.log(err);
     }
-    // for (let [key, value] of Object.entries(JSON.parse(data))) {
-    //   console.log(value.name);
-    // }
     myData = JSON.parse(data);
   });
 }
@@ -44,7 +42,7 @@ const getJSON = () => {
   const CLAN_TAG = "#" + properties.get("CLAN_TAG");
   const BASE_URL = properties.get("BASE_URL");
   const URL_MEMBERS =
-    BASE_URL + "/members/" + encodeURIComponent(CLAN_TAG) + "/members";
+    BASE_URL + "/clans/" + encodeURIComponent(CLAN_TAG) + "/members";
   console.log("URL: " + URL_MEMBERS);
   let reqInstance = axios.create({
     headers: {
@@ -54,11 +52,7 @@ const getJSON = () => {
   reqInstance
     .get(URL_MEMBERS)
     .then((res) => {
-      const users = res.data;
-      console.table("resdata: " + JSON.stringify(res.data));
-      // for(user of users) {
-      //   console.log(`Got user with id: ${user.id}, name: ${user.name}`);
-      // }
+      myData = JSON.parse(JSON.stringify(res.data.items));
     })
     .catch((err) => {
       console.error("Error: ", err.message);

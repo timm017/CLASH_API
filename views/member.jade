@@ -1,10 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Member: 
-    b "#{memberData.name}"
   p name: #{memberData.name}
+    b "#{memberData.name}"
   p expLevel: #{memberData.expLevel}
   p tag: #{memberData.tag}
   p warStars: #{memberData.warStars}

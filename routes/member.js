@@ -8,7 +8,8 @@ var myData;
 /* GET clans page. */
 router.get("/", function (req, res, next) {
   var userTag = req.query.usertag;
-  getJSONTestData(userTag);
+  // getJSONTestData(userTag);
+  getJSON(userTag);
   res.render("member", {
     title: "Member",
     memberText: "Member text",
@@ -39,27 +40,22 @@ function getJSONTestData(userTag) {
  * getJSON - Makes the API call
  * @returns - JSON
  */
-const getJSON = () => {
+const getJSON = (userTag) => {
   var properties = PropertiesReader("./config/api.properties");
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
-  const CLAN_TAG = "#" + properties.get("CLAN_TAG");
   const BASE_URL = properties.get("BASE_URL");
-  const URL_MEMBERS =
-    BASE_URL + "/clans/" + encodeURIComponent(CLAN_TAG) + "/member";
-  console.log("URL: " + URL_MEMBERS);
+  const URL_MEMBER = BASE_URL + "/players/" + encodeURIComponent("#" + userTag);
+  console.log("URL: " + URL_MEMBER);
   let reqInstance = axios.create({
     headers: {
       Authorization: `Bearer ${HOME_COC_TOKEN}`,
     },
   });
   reqInstance
-    .get(URL_MEMBERS)
+    .get(URL_MEMBER)
     .then((res) => {
-      const users = res.data;
-      console.table("resdata: " + JSON.stringify(res.data));
-      // for(user of users) {
-      //   console.log(`Got user with id: ${user.id}, name: ${user.name}`);
-      // }
+      // console.table("resdata: " + JSON.stringify(res.data));
+      myData = JSON.parse(JSON.stringify(res.data));
     })
     .catch((err) => {
       console.error("Error: ", err.message);

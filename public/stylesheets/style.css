@@ -3,34 +3,43 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+div#main-body {
+  display: inline-block;
+}
+
 a {
-  color: #00B7FF;
+  color: #00b7ff;
 }
 
-ul.nav {
+/***
+  Navigation
+*/
+nav {
   display: flex;
-  justify-content: left;
-	margin:10px;
-	width:900px;
-	font-family: sans-serif;
-}
-ul.nav li {
-	display:block;
-	width:120px;
-	float:left;
-	margin-left:2px;
-	border:1px solid #000;
 }
 
-ul.nav a {
-	display:block;
-	padding:3px;
-	text-decoration:none;
-	background-color:#fff;
-	color:#009;
+nav ul {
+  list-style-type: none;
 }
 
-ul.nav a:hover {
-	background-color:#009;
-	color:#fff;
+nav ul li {
+  float: left;
+  margin-right: 0.5em;
+}
+
+nav ul li a {
+  padding: 0.25em 1em;
+  text-decoration: none; /* no underline */
+  background-color: #ebf5ff; /* pale bluish white */
+  color: #4312ae; /* dark blue */
+  border: 2px solid black;
+  border-top-left-radius: 1em 1em; /* rounded corner! */
+  border-top-right-radius: 1em 1em; /* another rounded corner! */
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+  color: black;
+  background-color: white;
+  font-weight: bold;
 }

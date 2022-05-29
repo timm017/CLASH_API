@@ -13,6 +13,11 @@ a {
   color: #00b7ff;
 }
 
+a.header-link {
+  text-decoration: none;
+  color: #000;
+}
+
 header {
   background-color: white;
   position: fixed;

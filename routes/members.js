@@ -7,8 +7,8 @@ var myData;
 
 /* GET members page. */
 router.get("/", function (req, res, next) {
-  getJSON();
-  // getJSONTestData();
+  // getJSON();
+  getJSONTestData();
   res.render("members", {
     title: "Members",
     membersText: "Old Rebels",

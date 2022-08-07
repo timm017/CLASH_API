@@ -62,3 +62,7 @@ nav ul li a:focus {
   background-color: white;
   font-weight: bold;
 }
+
+span.role {
+  color: white;
+}

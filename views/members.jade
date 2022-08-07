@@ -6,6 +6,6 @@ block content
       li
         a(href="./member?usertag=" + d.tag.replace('#','')) #{d.name}
         if d.role == "admin"
-          span  (elder)
+          span(class='role')  (elder)
         else 
-          span  (#{d.role})
+          span(class='role')  (#{d.role})

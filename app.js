@@ -11,6 +11,8 @@ var memberRouter = require("./routes/member");
 
 var app = express();
 
+const port = 3001;
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -26,8 +28,8 @@ app.use("/users", usersRouter);
 app.use("/members", membersRouter);
 app.use("/member", memberRouter);
 
-app.listen(3000, function () {
-  console.log("Express server listening on port 3000");
+app.listen(port, function () {
+  console.log("Express server listening on port: " + port);
 });
 
 // catch 404 and forward to error handler

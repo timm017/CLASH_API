@@ -7,8 +7,8 @@ var myData;
 
 /* GET members page. */
 router.get("/", function (req, res, next) {
-  getJSON();
-  // getJSONTestData();
+  // getJSON();
+  getJSONTestData();
   res.render("members", {
     title: "Members",
     membersText: "Old Rebels",
@@ -41,8 +41,7 @@ const getJSON = () => {
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
   const CLAN_TAG = "#" + properties.get("CLAN_TAG");
   const BASE_URL = properties.get("BASE_URL");
-  const URL_MEMBERS =
-    BASE_URL + "/clans/" + encodeURIComponent(CLAN_TAG) + "/members";
+  const URL_MEMBERS = BASE_URL + "/clans/" + encodeURIComponent(CLAN_TAG) + "/members";
   console.log("URL: " + URL_MEMBERS);
   let reqInstance = axios.create({
     headers: {

@@ -1,0 +1,355 @@
+{
+  "items": [
+    {
+      "tag": "#2L2JY80L2",
+      "name": "50 Thieves",
+      "type": "inviteOnly",
+      "location": {
+        "id": 32000249,
+        "name": "United States",
+        "isCountry": true,
+        "countryCode": "US"
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/1F9Sjb0b9Pglkn_opHjulQSdvI-v1ecwsGec7eEWxTw.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/1F9Sjb0b9Pglkn_opHjulQSdvI-v1ecwsGec7eEWxTw.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/1F9Sjb0b9Pglkn_opHjulQSdvI-v1ecwsGec7eEWxTw.png"
+      },
+      "clanLevel": 17,
+      "clanPoints": 55153,
+      "clanVersusPoints": 48415,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 5400,
+      "warFrequency": "always",
+      "warWinStreak": 2,
+      "warWins": 153,
+      "warTies": 0,
+      "warLosses": 23,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000018,
+        "name": "Champion League I"
+      },
+      "members": 45,
+      "labels": [
+        {
+          "id": 56000001,
+          "name": "Clan War League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+          }
+        },
+        {
+          "id": 56000002,
+          "name": "Trophy Pushing",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/hNtigjuwJjs6PWhVtVt5HvJgAp4ZOMO8e2nyjHX29sA.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/hNtigjuwJjs6PWhVtVt5HvJgAp4ZOMO8e2nyjHX29sA.png"
+          }
+        },
+        {
+          "id": 56000014,
+          "name": "Competitive",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/DhBE-1SSnrZQtsfjVHyNW-BTBWMc8Zoo34MNRCNiRsA.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/DhBE-1SSnrZQtsfjVHyNW-BTBWMc8Zoo34MNRCNiRsA.png"
+          }
+        }
+      ],
+      "requiredVersusTrophies": 0,
+      "requiredTownhallLevel": 15,
+      "chatLanguage": {
+        "id": 75000000,
+        "name": "English",
+        "languageCode": "EN"
+      }
+    },
+    {
+      "tag": "#RGCQLG00",
+      "name": "ANH HUNG VIET",
+      "type": "inviteOnly",
+      "location": {
+        "id": 32000255,
+        "name": "Vietnam",
+        "isCountry": true,
+        "countryCode": "VN"
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/nudh4QCPRul8nrebNgjJB24IqcsOsqxgEse_-xrlEWA.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/nudh4QCPRul8nrebNgjJB24IqcsOsqxgEse_-xrlEWA.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/nudh4QCPRul8nrebNgjJB24IqcsOsqxgEse_-xrlEWA.png"
+      },
+      "clanLevel": 30,
+      "clanPoints": 55539,
+      "clanVersusPoints": 46703,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 5500,
+      "warFrequency": "always",
+      "warWinStreak": 1,
+      "warWins": 492,
+      "warTies": 2,
+      "warLosses": 303,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000018,
+        "name": "Champion League I"
+      },
+      "members": 50,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000001,
+          "name": "Clan War League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+          }
+        },
+        {
+          "id": 56000002,
+          "name": "Trophy Pushing",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/hNtigjuwJjs6PWhVtVt5HvJgAp4ZOMO8e2nyjHX29sA.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/hNtigjuwJjs6PWhVtVt5HvJgAp4ZOMO8e2nyjHX29sA.png"
+          }
+        }
+      ],
+      "requiredVersusTrophies": 1000,
+      "requiredTownhallLevel": 15,
+      "chatLanguage": {
+        "id": 75000018,
+        "name": "Tiếng Việt",
+        "languageCode": "VI"
+      }
+    },
+    {
+      "tag": "#Y99C9Q2G",
+      "name": "ARAB LEGEND Coc",
+      "type": "inviteOnly",
+      "location": {
+        "id": 32000124,
+        "name": "Jordan",
+        "isCountry": true,
+        "countryCode": "JO"
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/dLekYEJvXQjWfseF-LLxOFD4gDUxZ6rVoL8N2N1ARhw.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/dLekYEJvXQjWfseF-LLxOFD4gDUxZ6rVoL8N2N1ARhw.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/dLekYEJvXQjWfseF-LLxOFD4gDUxZ6rVoL8N2N1ARhw.png"
+      },
+      "clanLevel": 20,
+      "clanPoints": 57469,
+      "clanVersusPoints": 47860,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 5400,
+      "warFrequency": "unknown",
+      "warWinStreak": 7,
+      "warWins": 495,
+      "isWarLogPublic": false,
+      "warLeague": {
+        "id": 48000018,
+        "name": "Champion League I"
+      },
+      "members": 50,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000001,
+          "name": "Clan War League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+          }
+        },
+        {
+          "id": 56000002,
+          "name": "Trophy Pushing",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/hNtigjuwJjs6PWhVtVt5HvJgAp4ZOMO8e2nyjHX29sA.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/hNtigjuwJjs6PWhVtVt5HvJgAp4ZOMO8e2nyjHX29sA.png"
+          }
+        }
+      ],
+      "requiredVersusTrophies": 0,
+      "requiredTownhallLevel": 15,
+      "chatLanguage": {
+        "id": 75000014,
+        "name": "العربية",
+        "languageCode": "AR"
+      }
+    },
+    {
+      "tag": "#PQU9YQCQ",
+      "name": "Arrow",
+      "type": "inviteOnly",
+      "location": {
+        "id": 32000115,
+        "name": "Iran",
+        "isCountry": true,
+        "countryCode": "IR"
+      },
+      "isFamilyFriendly": true,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/7YWA5YyCk8thL-Er1KL9KwyTM9ijA2ZibM5w44huTYQ.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/7YWA5YyCk8thL-Er1KL9KwyTM9ijA2ZibM5w44huTYQ.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/7YWA5YyCk8thL-Er1KL9KwyTM9ijA2ZibM5w44huTYQ.png"
+      },
+      "clanLevel": 27,
+      "clanPoints": 55806,
+      "clanVersusPoints": 50107,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 5500,
+      "warFrequency": "always",
+      "warWinStreak": 5,
+      "warWins": 738,
+      "isWarLogPublic": false,
+      "warLeague": {
+        "id": 48000018,
+        "name": "Champion League I"
+      },
+      "members": 48,
+      "labels": [
+        {
+          "id": 56000000,
+          "name": "Clan Wars",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+          }
+        },
+        {
+          "id": 56000011,
+          "name": "Talkative",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/T1c8AYalTn_RruVkY0mRPwNYF5n802thTBEEnOtNTMw.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/T1c8AYalTn_RruVkY0mRPwNYF5n802thTBEEnOtNTMw.png"
+          }
+        },
+        {
+          "id": 56000014,
+          "name": "Competitive",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/DhBE-1SSnrZQtsfjVHyNW-BTBWMc8Zoo34MNRCNiRsA.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/DhBE-1SSnrZQtsfjVHyNW-BTBWMc8Zoo34MNRCNiRsA.png"
+          }
+        }
+      ],
+      "requiredVersusTrophies": 2000,
+      "requiredTownhallLevel": 15,
+      "chatLanguage": {
+        "id": 75000000,
+        "name": "English",
+        "languageCode": "EN"
+      }
+    },
+    {
+      "tag": "#22YLP9CG",
+      "name": "AY YILDIZ",
+      "type": "inviteOnly",
+      "location": {
+        "id": 32000239,
+        "name": "Türkiye",
+        "isCountry": true,
+        "countryCode": "TR"
+      },
+      "isFamilyFriendly": false,
+      "badgeUrls": {
+        "small": "https://api-assets.clashofclans.com/badges/70/m8r4wNONxStXrOm2OmXtjIouOcHi_O3G5bYp2IVuiY8.png",
+        "large": "https://api-assets.clashofclans.com/badges/512/m8r4wNONxStXrOm2OmXtjIouOcHi_O3G5bYp2IVuiY8.png",
+        "medium": "https://api-assets.clashofclans.com/badges/200/m8r4wNONxStXrOm2OmXtjIouOcHi_O3G5bYp2IVuiY8.png"
+      },
+      "clanLevel": 25,
+      "clanPoints": 55289,
+      "clanVersusPoints": 49737,
+      "clanCapitalPoints": 0,
+      "capitalLeague": {
+        "id": 85000000,
+        "name": "Unranked"
+      },
+      "requiredTrophies": 5300,
+      "warFrequency": "always",
+      "warWinStreak": 0,
+      "warWins": 571,
+      "warTies": 1,
+      "warLosses": 483,
+      "isWarLogPublic": true,
+      "warLeague": {
+        "id": 48000017,
+        "name": "Champion League II"
+      },
+      "members": 50,
+      "labels": [
+        {
+          "id": 56000011,
+          "name": "Talkative",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/T1c8AYalTn_RruVkY0mRPwNYF5n802thTBEEnOtNTMw.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/T1c8AYalTn_RruVkY0mRPwNYF5n802thTBEEnOtNTMw.png"
+          }
+        },
+        {
+          "id": 56000013,
+          "name": "Relaxed",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/Kv1MZQfd5A7DLwf1Zw3tOaUiwQHGMwmRpjZqOalu_hI.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/Kv1MZQfd5A7DLwf1Zw3tOaUiwQHGMwmRpjZqOalu_hI.png"
+          }
+        },
+        {
+          "id": 56000014,
+          "name": "Competitive",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/labels/64/DhBE-1SSnrZQtsfjVHyNW-BTBWMc8Zoo34MNRCNiRsA.png",
+            "medium": "https://api-assets.clashofclans.com/labels/128/DhBE-1SSnrZQtsfjVHyNW-BTBWMc8Zoo34MNRCNiRsA.png"
+          }
+        }
+      ],
+      "requiredVersusTrophies": 1500,
+      "requiredTownhallLevel": 15,
+      "chatLanguage": {
+        "id": 75000008,
+        "name": "Türkçe",
+        "languageCode": "TR"
+      }
+    }
+  ],
+  "paging": {
+    "cursors": {
+      "after": "eyJwb3MiOjV9"
+    }
+  }
+}

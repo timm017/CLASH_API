@@ -1,5 +1,5 @@
 bin
-config
+config/api.properties
 
 # Logs
 logs

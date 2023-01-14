@@ -5,34 +5,37 @@ const fs = require("fs");
 var PropertiesReader = require("properties-reader");
 
 /**
- * Get info about a specific member
+ * TEST data for top ranked clans by points (trophies)
  */
 function getJSONTestData(req, res, next) {
-  fs.readFile("./config/json_member.json", "utf8", function (err, data) {
+  fs.readFile("./config/json_topranks.json", "utf8", function (err, data) {
     if (err) {
       return console.log(err);
     }
-    let usertag = req.query.usertag;
-    if (usertag == undefined) {
-      console.log("userTag undefined");
-    } else {
-      console.log("userTag: " + usertag);
-    }
-    req.m = JSON.parse(data);
+    // data =  JSON.parse(data);
+    // data = data.sort((a, b) => {
+    //   if (a.clanPoints < b.clanPoints) {
+    //     return -1;
+    //   }
+    // });
+    req.t = JSON.parse(data);
     next();
   });
 }
 
 /**
  * getJSON - Makes the API call
+ * https://api.clashofclans.com/v1/clans?minClanPoints=55000&minClanLevel=10&limit=5
  * @returns - JSON
  */
 const getJSON = (userTag) => {
   var properties = PropertiesReader("./config/api.properties");
+  const minClanPoints = 55000;
+  const minClanLevel = 10;
+  const limit = 5;
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
   const BASE_URL = properties.get("BASE_URL");
-  const URL_MEMBER = BASE_URL + "/players/" + encodeURIComponent("#" + userTag);
-  console.log("URL: " + URL_MEMBER);
+  const URL_MEMBER = BASE_URL + "/clans?minClanPoints=" + minClanPoints + "&minClanLevel=" + minClanLevel + "&limit=" + limit;
   let reqInstance = axios.create({
     headers: {
       Authorization: `Bearer ${HOME_COC_TOKEN}`,
@@ -41,7 +44,6 @@ const getJSON = (userTag) => {
   reqInstance
     .get(URL_MEMBER)
     .then((res) => {
-      // console.table("resdata: " + JSON.stringify(res.data));
       myData = JSON.parse(JSON.stringify(res.data));
     })
     .catch((err) => {
@@ -49,18 +51,15 @@ const getJSON = (userTag) => {
     });
 };
 
+// Call function before router is rendered
 router.use(getJSONTestData);
 
 /* GET clans page. */
 router.get("/", function (req, res, next) {
-  var userTag = req.query.usertag;
-  // getJSONTestData(userTag);
-  // getJSON(userTag);
-  res.render("member", {
-    title: "Member",
-    memberText: "Timothy info",
-    memberData: req.m,
-    userTag: req.m,
+  res.render("topranks", {
+    title: "Top Ranks",
+    topranksText: "Top Ranked Clans",
+    topranksData: req.t.items,
   });
 });
 

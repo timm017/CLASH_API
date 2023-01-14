@@ -64,5 +64,30 @@ nav ul li a:focus {
 }
 
 span.role {
-  color: white;
+  color: black;
 }
+
+/***************************
+ ***  Member page 
+ ***************************/
+div#member-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+table#member-table {
+  
+}
+
+table#member-table th, table#member-table tr, table#member-table td {
+  text-align: left;
+  padding: 10px;
+}
+
+/***************************
+ ***  Top ranks page 
+ ***************************/
+ .clan-badge {
+  width: 50px;
+ }

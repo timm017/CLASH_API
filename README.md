@@ -9,3 +9,8 @@ npm install properties-reader
 
 To run:
 node app.js
+
+TODO:
+Sort table columns
+Top ranks - sort by clanPoints
+Input fields to manually lookup clans

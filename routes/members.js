@@ -3,32 +3,19 @@ const axios = require("axios");
 var router = express.Router();
 const fs = require("fs");
 var PropertiesReader = require("properties-reader");
-var myData;
-
-/* GET members page. */
-router.get("/", function (req, res, next) {
-  // getJSON();
-  getJSONTestData();
-  res.render("members", {
-    title: "Members",
-    membersText: "Old Rebels",
-    memberData: myData,
-  });
-});
 
 //{"items":[
 //{"tag":"#RC8VU9G8","name":"mic","role":"coLeader","expLevel":261,
 //"league":{"id":29000022,"name":"Legend League",
 //"iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png","tiny":"https://api-assets.clashofclans.com/leagues/36/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png","medium":"https://api-assets.clashofclans.com/leagues/288/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png"}},
 //"trophies":5512,"versusTrophies":4841,"clanRank":1,"previousClanRank":1,"donations":12666,"donationsReceived":11316}
-function getJSONTestData() {
-  var properties = PropertiesReader("config/api.properties");
-  const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
+function getJSONTestData(req, res, next) {
   fs.readFile("./config/json_members.json", "utf8", function (err, data) {
     if (err) {
       return console.log(err);
     }
-    myData = JSON.parse(data);
+    req.m = JSON.parse(data);
+    next();
   });
 }
 
@@ -57,5 +44,16 @@ const getJSON = () => {
       console.error("Error: ", err.message);
     });
 };
+
+router.use(getJSONTestData);
+
+/* GET members page. */
+router.get("/", function (req, res, next) {
+  res.render("members", {
+    title: "Members",
+    membersText: "Old Rebels",
+    memberData: req.m.items,
+  });
+});
 
 module.exports = router;

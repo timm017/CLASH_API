@@ -1,11 +1,23 @@
 extends layout
 
 block content
-  p name: #{memberData.name}
-    b "#{memberData.name}"
-  p expLevel: #{memberData.expLevel}
-  p tag: #{memberData.tag}
-  p warStars: #{memberData.warStars}
-  p role: #{memberData.role}
-  p clan name: #{memberData.clan.name}
-  p clan level: #{memberData.clan.clanLevel}
+  div(id="member-container")
+    table(id="member-table")
+      thead
+        tr
+          th Name
+          th XP
+          th Tag
+          th War Stars
+          th Role
+          th Clan
+          th Clan Lvl
+      tbody
+          tr
+            td #{memberData.name}
+            td #{memberData.expLevel}
+            td #{memberData.tag}
+            td #{memberData.warStars}
+            td #{memberData.role}
+            td #{memberData.clan.name}
+            td #{memberData.clan.clanLevel}

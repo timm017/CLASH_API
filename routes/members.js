@@ -4,12 +4,8 @@ var router = express.Router();
 const fs = require("fs");
 var PropertiesReader = require("properties-reader");
 
-//{"items":[
-//{"tag":"#RC8VU9G8","name":"mic","role":"coLeader","expLevel":261,
-//"league":{"id":29000022,"name":"Legend League",
-//"iconUrls":{"small":"https://api-assets.clashofclans.com/leagues/72/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png","tiny":"https://api-assets.clashofclans.com/leagues/36/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png","medium":"https://api-assets.clashofclans.com/leagues/288/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png"}},
-//"trophies":5512,"versusTrophies":4841,"clanRank":1,"previousClanRank":1,"donations":12666,"donationsReceived":11316}
-function getJSONTestData(req, res, next) {
+// TEST - config/json_members.json
+const getJSONTestData = (req, res, next) => {
   fs.readFile("./config/json_members.json", "utf8", function (err, data) {
     if (err) {
       return console.log(err);
@@ -23,13 +19,13 @@ function getJSONTestData(req, res, next) {
  * getJSON - Makes the API call
  * @returns - JSON
  */
-const getJSON = () => {
-  var properties = PropertiesReader("./config/api.properties");
+const getJSON = (req, res, next) => {
+  let properties = PropertiesReader("./config/api.properties");
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
-  const CLAN_TAG = "#" + properties.get("CLAN_TAG");
+  const CLAN_TAG = properties.get("CLAN_TAG");
   const BASE_URL = properties.get("BASE_URL");
-  const URL_MEMBERS = BASE_URL + "/clans/" + encodeURIComponent(CLAN_TAG) + "/members";
-  console.log("URL: " + URL_MEMBERS);
+  const URL_MEMBERS = BASE_URL + "clans/" + encodeURIComponent(CLAN_TAG) + "/members";
+  console.log("getJSON.URL: " + URL_MEMBERS);
   let reqInstance = axios.create({
     headers: {
       Authorization: `Bearer ${HOME_COC_TOKEN}`,
@@ -38,14 +34,17 @@ const getJSON = () => {
   reqInstance
     .get(URL_MEMBERS)
     .then((res) => {
-      myData = JSON.parse(JSON.stringify(res.data.items));
+      //req.m =  JSON.parse(JSON.stringify(res.data));
+      req.m = res.data;
+      next();
     })
     .catch((err) => {
       console.error("Error: ", err.message);
     });
 };
 
-router.use(getJSONTestData);
+// execute before render
+router.use(getJSON);
 
 /* GET members page. */
 router.get("/", function (req, res, next) {

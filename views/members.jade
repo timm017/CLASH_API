@@ -4,9 +4,13 @@ block content
   ul 
     each d, i in memberData
       li
+        span (#{d.expLevel}) 
         a(href="./member?usertag=" + d.tag.replace('#','')) #{d.name}
-        //- a(href="./member?usertag=" + HIII) TT
-        if d.role == "admin"
-          span(class='role')  (elder)
+        if d.role == "leader"
+          span(class="role leader")  (Leader)
+        else if d.role == "coLeader"
+          span(class="role coleader")  (Coleader)
+        else if d.role == "admin"
+          span(class="role elder")   (Elder)
         else 
           span(class='role')  (#{d.role})

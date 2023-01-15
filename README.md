@@ -6,6 +6,8 @@ Create "config" folder add "api.properties" (contains keys/tokens).
 # TODO: Update package.json so can just do "npm install"
 npm install axios
 npm install properties-reader
+# used for package.json npm start
+npm install concurrently
 
 To run:
 node app.js

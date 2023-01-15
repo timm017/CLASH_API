@@ -1,5 +1,6 @@
 bin
 config/api.properties
+public/css
 
 # Logs
 logs

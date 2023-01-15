@@ -6,8 +6,9 @@ var PropertiesReader = require("properties-reader");
 
 /**
  * TEST data for top ranked clans by points (trophies)
+ * config/json_topranks.json
  */
-function getJSONTestData(req, res, next) {
+const getJSONTestData = (req, res, next) => {
   fs.readFile("./config/json_topranks.json", "utf8", function (err, data) {
     if (err) {
       return console.log(err);

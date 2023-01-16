@@ -5,6 +5,7 @@ block content
     table(id="member-table")
       thead
         tr
+          th League
           th Name
           th XP
           th Tag
@@ -14,10 +15,16 @@ block content
           th Clan Lvl
       tbody
           tr
+            td
+              a(href="./leagues")
+                img(src="#{memberData.league.iconUrls.small}" class="league-badge" alt="League badge")
             td #{memberData.name}
             td #{memberData.expLevel}
             td #{memberData.tag}
             td #{memberData.warStars}
             td #{memberData.role}
-            td #{memberData.clan.name}
+            td
+              a(href="./members?clantag=#{memberData.clan.tag}" class="member-clan-badge")
+                img(src="#{memberData.clan.badgeUrls.small}") 
+                p #{memberData.clan.name} 
             td #{memberData.clan.clanLevel}

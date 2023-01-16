@@ -1,3 +1,5 @@
+@import "./colors";
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -10,12 +12,12 @@ div#main-body {
 }
 
 a {
-  color: #00b7ff;
+  color: $nav-font-link-default;
 }
 
 a.header-link {
   text-decoration: none;
-  color: #000;
+  color: $nav-font-link;
 }
 
 header {
@@ -35,6 +37,22 @@ header * {
   display: inline;
 }
 
+span.role {
+  &.leader {
+    color: red;
+  }
+
+  &.coleader {
+    color: orange;
+  }
+
+  &.elder {
+    color: blue;
+  }
+
+  color: green;
+}
+
 /***************************
  ***  Navigation page
  ***************************/
@@ -49,6 +67,7 @@ nav {
     li {
       margin: 20px;
       display: inline;
+
       &:hover {
         color: red
       }
@@ -83,37 +102,60 @@ div#home-main-container {
 }
 
 /***************************
+ ***  Members page
+ ***************************/
+ div#members-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  border: 1px;
+
+  table#members-table th,
+  tr,
+  td {
+    text-align: left;
+    padding: 10px;
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+
+    a.members-clan-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+
+/***************************
  ***  Member page
  ***************************/
 div#member-container {
   display: flex;
   justify-content: center;
   width: 100%;
+  border: 1px;
 
   table#member-table th,
   tr,
   td {
     text-align: left;
     padding: 10px;
+
+    img {
+      width: 25px;
+      height: 25px;
+    }
+
+    a.member-clan-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
-
-  table#member-table {}
-}
-
-span.role {
-  &.leader {
-    color: red;
-  }
-
-  &.coleader {
-    color: orange;
-  }
-
-  &.elder {
-    color: blue;
-  }
-
-  color: green;
 }
 
 /***************************
@@ -121,4 +163,20 @@ span.role {
  ***************************/
 .clan-badge {
   width: 50px;
+}
+
+/***************************
+ ***  Leagues page
+ ***************************/
+div#league-container {
+  table#league-table {
+    tr {
+      display: flex;
+
+      a {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
 }

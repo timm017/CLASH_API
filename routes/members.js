@@ -19,7 +19,7 @@ const getJSONTestData = (req, res, next) => {
  * getJSON - Makes the API call
  * @returns - JSON
  */
-const getJSON = (req, res, next) => {
+const getJSONReal = (req, res, next) => {
   let properties = PropertiesReader("./config/api.properties");
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
   const CLAN_TAG = properties.get("CLAN_TAG");
@@ -34,7 +34,6 @@ const getJSON = (req, res, next) => {
   reqInstance
     .get(URL_MEMBERS)
     .then((res) => {
-      //req.m =  JSON.parse(JSON.stringify(res.data));
       req.m = res.data;
       next();
     })
@@ -42,6 +41,18 @@ const getJSON = (req, res, next) => {
       console.error("Error: ", err.message);
     });
 };
+
+const getJSON = (req, res, next) => {
+  let properties = PropertiesReader("./config/api.properties");
+  const DEBUG = properties.get("DEBUG"); 
+  if(DEBUG == true) {
+    console.log("1 DEBUG: " + DEBUG);
+    getJSONTestData(req, res, next);
+  } else {
+    console.log("2 DEBUG: " + DEBUG);
+    getJSONReal(req, res, next);
+  }
+}
 
 // execute before render
 router.use(getJSON);
@@ -51,7 +62,7 @@ router.get("/", function (req, res, next) {
   res.render("members", {
     title: "Members",
     membersText: "Old Rebels",
-    memberData: req.m.items,
+    membersData: req.m.items,
   });
 });
 

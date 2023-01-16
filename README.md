@@ -13,6 +13,9 @@ To run:
 node app.js
 
 TODO:
-Sort table columns
-Top ranks - sort by clanPoints
-Input fields to manually lookup clans
+[] refactor "members" to "players" to be consistent with API call
+[] home page - have popular main links
+[] footer
+[] footer & header links shared
+[] Sortable table columns
+[] Input fields to manually lookup clans

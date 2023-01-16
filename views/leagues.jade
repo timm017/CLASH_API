@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  div(id="league-container")
+    table(id="league-table")
+      thead
+        tr
+          th 
+          th
+      tbody
+        each d, i in leagueData
+          tr
+            td
+              a(href="#")
+                img(src="#{d.iconUrls.small}" class="league-badge" alt="League badge")
+                span #{d.name}

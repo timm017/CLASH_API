@@ -8,17 +8,11 @@ var PropertiesReader = require("properties-reader");
  * Get info about a specific member
  */
 function getJSONTestData(req, res, next) {
-  fs.readFile("./config/json_member.json", "utf8", function (err, data) {
+  fs.readFile("./config/json_leagues.json", "utf8", function (err, data) {
     if (err) {
       return console.log(err);
     }
-    let usertag = req.query.usertag;
-    if (usertag == undefined) {
-      console.log("userTag undefined");
-    } else {
-      console.log("userTag: " + usertag);
-    }
-    req.m = JSON.parse(data);
+    req.l = JSON.parse(data);
     next();
   });
 }
@@ -27,11 +21,11 @@ function getJSONTestData(req, res, next) {
  * getJSON - Makes the API call
  * @returns - JSON
  */
-const getJSONReal = (req, res, next, uersTag) => {
+const getJSONReal = (req, res, next) => {
   var properties = PropertiesReader("./config/api.properties");
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
   const BASE_URL = properties.get("BASE_URL");
-  const URL_MEMBER = BASE_URL + "/players/" + encodeURIComponent("#" + userTag);
+  const URL_MEMBER = BASE_URL + "/leagues/";
   console.log("URL: " + URL_MEMBER);
   let reqInstance = axios.create({
     headers: {
@@ -41,6 +35,7 @@ const getJSONReal = (req, res, next, uersTag) => {
   reqInstance
     .get(URL_MEMBER)
     .then((res) => {
+      // console.table("resdata: " + JSON.stringify(res.data));
       myData = JSON.parse(JSON.stringify(res.data));
     })
     .catch((err) => {
@@ -60,18 +55,14 @@ const getJSON = (req, res, next) => {
   }
 }
 
-router.use(getJSONTestData);
+router.use(getJSON);
 
 /* GET clans page. */
 router.get("/", function (req, res, next) {
-  var userTag = req.query.usertag;
-  // getJSONTestData(userTag);
-  // getJSON(userTag);
-  res.render("member", {
-    title: "Member",
-    memberText: "Timothy info",
-    memberData: req.m,
-    userTag: req.m,
+  res.render("leagues", {
+    title: "Leagues",
+    leagueText: "Leagues info",
+    leagueData: req.l.items,
   });
 });
 

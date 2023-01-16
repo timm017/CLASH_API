@@ -9,6 +9,7 @@ var usersRouter = require("./routes/users");
 var membersRouter = require("./routes/members");
 var memberRouter = require("./routes/member");
 var topranksRouter = require("./routes/topranks");
+var leaguesRouter = require("./routes/leagues");
 
 var app = express();
 
@@ -29,6 +30,7 @@ app.use("/users", usersRouter);
 app.use("/members", membersRouter);
 app.use("/member", memberRouter);
 app.use("/topranks", topranksRouter);
+app.use("/leagues", leaguesRouter);
 
 app.listen(port, function () {
   console.log("Express server listening on port: " + port);

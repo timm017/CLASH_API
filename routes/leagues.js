@@ -3,12 +3,14 @@ const axios = require("axios");
 var router = express.Router();
 const fs = require("fs");
 var PropertiesReader = require("properties-reader");
+var properties = PropertiesReader("./config/api.properties");
 
 /**
  * Get info about a specific member
  */
 function getJSONTestData(req, res, next) {
-  fs.readFile("./config/json_leagues.json", "utf8", function (err, data) {
+  const TEST_DATA_DIR = properties.get("TEST_DATA_DIR");
+  fs.readFile(TEST_DATA_DIR + "json_leagues.json", "utf8", function (err, data) {
     if (err) {
       return console.log(err);
     }
@@ -22,7 +24,6 @@ function getJSONTestData(req, res, next) {
  * @returns - JSON
  */
 const getJSONReal = (req, res, next) => {
-  var properties = PropertiesReader("./config/api.properties");
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
   const BASE_URL = properties.get("BASE_URL");
   const URL_MEMBER = BASE_URL + "/leagues/";
@@ -45,12 +46,11 @@ const getJSONReal = (req, res, next) => {
 
 const getJSON = (req, res, next) => {
   let properties = PropertiesReader("./config/api.properties");
-  const DEBUG = properties.get("DEBUG"); 
+  const DEBUG = properties.get("DEBUG");
+  console.log("DEBUG leagues: " + DEBUG);
   if(DEBUG == true) {
-    console.log("1 DEBUG: " + DEBUG);
     getJSONTestData(req, res, next);
   } else {
-    console.log("2 DEBUG: " + DEBUG);
     getJSONReal(req, res, next);
   }
 }

@@ -3,13 +3,15 @@ const axios = require("axios");
 var router = express.Router();
 const fs = require("fs");
 var PropertiesReader = require("properties-reader");
+var properties = PropertiesReader("./config/api.properties");
 
 /**
  * TEST data for top ranked clans by points (trophies)
  * config/json_topranks.json
  */
 const getJSONTestData = (req, res, next) => {
-  fs.readFile("./config/json_topranks.json", "utf8", function (err, data) {
+  const TEST_DATA_DIR = properties.get("TEST_DATA_DIR");
+  fs.readFile(TEST_DATA_DIR + "json_topranks.json", "utf8", function (err, data) {
     if (err) {
       return console.log(err);
     }
@@ -53,7 +55,7 @@ const getJSON = (userTag) => {
 };
 
 // Call function before router is rendered
-router.use(getJSONTestData);
+router.use(getJSON);
 
 /* GET clans page. */
 router.get("/", function (req, res, next) {

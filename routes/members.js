@@ -3,10 +3,12 @@ const axios = require("axios");
 var router = express.Router();
 const fs = require("fs");
 var PropertiesReader = require("properties-reader");
+var properties = PropertiesReader("./config/api.properties");
 
 // TEST - config/json_members.json
 const getJSONTestData = (req, res, next) => {
-  fs.readFile("./config/json_members.json", "utf8", function (err, data) {
+  const TEST_DATA_DIR = properties.get("TEST_DATA_DIR");
+  fs.readFile(TEST_DATA_DIR + "json_members.json", "utf8", function (err, data) {
     if (err) {
       return console.log(err);
     }
@@ -44,12 +46,11 @@ const getJSONReal = (req, res, next) => {
 
 const getJSON = (req, res, next) => {
   let properties = PropertiesReader("./config/api.properties");
-  const DEBUG = properties.get("DEBUG"); 
+  const DEBUG = properties.get("DEBUG");
+  console.log("DEBUG members.js: " + DEBUG); 
   if(DEBUG == true) {
-    console.log("1 DEBUG: " + DEBUG);
     getJSONTestData(req, res, next);
   } else {
-    console.log("2 DEBUG: " + DEBUG);
     getJSONReal(req, res, next);
   }
 }

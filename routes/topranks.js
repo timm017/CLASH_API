@@ -31,21 +31,22 @@ const getJSONTestData = (req, res, next) => {
  * https://api.clashofclans.com/v1/clans?minClanPoints=55000&minClanLevel=10&limit=5
  * @returns - JSON
  */
-const getJSON = (userTag) => {
+const getJSONReal = (req, res, next) => {
   var properties = PropertiesReader("./config/api.properties");
-  const minClanPoints = 55000;
+  const minClanPoints = 45000;
   const minClanLevel = 10;
-  const limit = 5;
+  const limit = 10;
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
   const BASE_URL = properties.get("BASE_URL");
-  const URL_MEMBER = BASE_URL + "/clans?minClanPoints=" + minClanPoints + "&minClanLevel=" + minClanLevel + "&limit=" + limit;
+  const URL_CLANS = BASE_URL + "clans?minClanPoints=" + minClanPoints + "&minClanLevel=" + minClanLevel + "&limit=" + limit;
+  console.log("URL_CLANS: " + URL_CLANS);
   let reqInstance = axios.create({
     headers: {
       Authorization: `Bearer ${HOME_COC_TOKEN}`,
     },
   });
   reqInstance
-    .get(URL_MEMBER)
+    .get(URL_CLANS)
     .then((res) => {
       myData = JSON.parse(JSON.stringify(res.data));
     })
@@ -53,6 +54,17 @@ const getJSON = (userTag) => {
       console.error("Error: ", err.message);
     });
 };
+
+const getJSON = (req, res, next) => {
+  let properties = PropertiesReader("./config/api.properties");
+  const DEBUG = properties.get("DEBUG");
+  console.log("DEBUG leagues: " + DEBUG);
+  if(DEBUG == true) {
+    getJSONTestData(req, res, next);
+  } else {
+    getJSONReal(req, res, next);
+  }
+}
 
 // Call function before router is rendered
 router.use(getJSON);

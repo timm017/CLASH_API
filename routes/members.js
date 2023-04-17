@@ -21,12 +21,12 @@ const getJSONTestData = (req, res, next) => {
  * getJSON - Makes the API call
  * @returns - JSON
  */
-const getJSONReal = (req, res, next) => {
+const getJSONReal = (req, res, next, clantag) => {
   let properties = PropertiesReader("./config/api.properties");
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
   const CLAN_TAG = properties.get("CLAN_TAG");
   const BASE_URL = properties.get("BASE_URL");
-  const URL_MEMBERS = BASE_URL + "clans/" + encodeURIComponent(CLAN_TAG) + "/members";
+  const URL_MEMBERS = BASE_URL + "clans/" + encodeURIComponent(clantag) + "/members";
   console.log("getJSON.URL: " + URL_MEMBERS);
   let reqInstance = axios.create({
     headers: {
@@ -40,7 +40,8 @@ const getJSONReal = (req, res, next) => {
       next();
     })
     .catch((err) => {
-      console.error("Error: ", err.message);
+      req.m = "";
+      next();
     });
 };
 
@@ -51,7 +52,8 @@ const getJSON = (req, res, next) => {
   if(DEBUG == true) {
     getJSONTestData(req, res, next);
   } else {
-    getJSONReal(req, res, next);
+    var clantag = req.query.clantag;
+    getJSONReal(req, res, next, clantag);
   }
 }
 
@@ -64,6 +66,7 @@ router.get("/", function (req, res, next) {
     title: "Members",
     membersText: "Old Rebels",
     membersData: req.m.items,
+    membersDataLen: req.m.length,
   });
 });
 

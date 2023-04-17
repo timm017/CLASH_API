@@ -15,13 +15,11 @@ const getJSONTestData = (req, res, next) => {
     if (err) {
       return console.log(err);
     }
-    // data =  JSON.parse(data);
-    // data = data.sort((a, b) => {
-    //   if (a.clanPoints < b.clanPoints) {
-    //     return -1;
-    //   }
-    // });
-    req.t = JSON.parse(data);
+    data = JSON.parse(data);
+    data.items.sort(function (a, b) {
+      return b.clanPoints - a.clanPoints;
+    });
+    req.t = data;
     next();
   });
 }
@@ -33,9 +31,9 @@ const getJSONTestData = (req, res, next) => {
  */
 const getJSONReal = (req, res, next) => {
   var properties = PropertiesReader("./config/api.properties");
-  const minClanPoints = 45000;
+  const minClanPoints = 57000;
   const minClanLevel = 10;
-  const limit = 10;
+  const limit = 45;
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
   const BASE_URL = properties.get("BASE_URL");
   const URL_CLANS = BASE_URL + "clans?minClanPoints=" + minClanPoints + "&minClanLevel=" + minClanLevel + "&limit=" + limit;
@@ -48,7 +46,13 @@ const getJSONReal = (req, res, next) => {
   reqInstance
     .get(URL_CLANS)
     .then((res) => {
-      myData = JSON.parse(JSON.stringify(res.data));
+      console.log('myData: ' + res.data);
+      // sort by clan points
+      res.data.items.sort(function (a, b) {
+        return b.clanPoints - a.clanPoints;
+      });
+      req.t = res.data;
+      next();
     })
     .catch((err) => {
       console.error("Error: ", err.message);
@@ -59,7 +63,7 @@ const getJSON = (req, res, next) => {
   let properties = PropertiesReader("./config/api.properties");
   const DEBUG = properties.get("DEBUG");
   console.log("DEBUG leagues: " + DEBUG);
-  if(DEBUG == true) {
+  if (DEBUG == true) {
     getJSONTestData(req, res, next);
   } else {
     getJSONReal(req, res, next);

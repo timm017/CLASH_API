@@ -2,33 +2,36 @@ extends layout
 
 block content
   div(id="members-container")
-    table(id="members-table")
-      thead
-        tr
-          th League
-          th Exp
-          th Name
-          th Role
-          th Trophies
-          th Dono
-          th Dono Rec
-      tbody
-        each d, i in membersData
+    if(membersDataLen == 0)
+      p(class="error") No members found
+    else
+      table(id="members-table")
+        thead
           tr
-            td
-              img(src="#{d.league.iconUrls.small}")
-            td #{d.expLevel}
-            td
-              a(href="./member?usertag=" + d.tag.replace('#','')) #{d.name}
-            td
-              if d.role == "leader"
-                span(class="role leader") Leader
-              else if d.role == "coLeader"
-                span(class="role coleader") Coleader
-              else if d.role == "admin"
-                span(class="role elder") Elder
-              else 
-                span(class='role') #{d.role}
-            td #{d.trophies} 
-            td #{d.donations}
-            td #{d.donationsReceived}
+            th League
+            th Exp
+            th Name
+            th Role
+            th Trophies
+            th Dono
+            th Dono Rec
+        tbody
+          each d, i in membersData
+            tr
+              td
+                img(src="#{d.league.iconUrls.small}")
+              td #{d.expLevel}
+              td
+                a(href="./member?usertag=" + d.tag.replace('#','')) #{d.name}
+              td
+                if d.role == "leader"
+                  span(class="role leader") Leader
+                else if d.role == "coLeader"
+                  span(class="role coleader") Coleader
+                else if d.role == "admin"
+                  span(class="role elder") Elder
+                else 
+                  span(class='role') #{d.role}
+              td #{d.trophies} 
+              td #{d.donations}
+              td #{d.donationsReceived}

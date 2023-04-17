@@ -11,5 +11,10 @@ block content
         p
           a(href="./leagues") Current Leagues
         p 
-          input(name="clantag", type="text", placeholder="Clan Tag")
-          button(id="clan-search") Search
+          a(href="./members?clantag=%232LPCCR8U") Old Rebels
+        p 
+          a(href="./members?clantag=%232L2JY80L2") 50 Thieves
+        p   
+          form(action="members" method="get" id="clan-search-form")
+            input(name="clantag", type="text", placeholder="Clan Tag")
+            button(id="clan-search") Search

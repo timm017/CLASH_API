@@ -3,10 +3,12 @@ const axios = require("axios");
 var router = express.Router();
 const fs = require("fs");
 var PropertiesReader = require("properties-reader");
+var properties = PropertiesReader("./config/api.properties");
 
 // TEST - config/json_members.json
 const getJSONTestData = (req, res, next) => {
-  fs.readFile("./config/json_members.json", "utf8", function (err, data) {
+  const TEST_DATA_DIR = properties.get("TEST_DATA_DIR");
+  fs.readFile(TEST_DATA_DIR + "json_members.json", "utf8", function (err, data) {
     if (err) {
       return console.log(err);
     }
@@ -19,12 +21,12 @@ const getJSONTestData = (req, res, next) => {
  * getJSON - Makes the API call
  * @returns - JSON
  */
-const getJSONReal = (req, res, next) => {
+const getJSONReal = (req, res, next, clantag) => {
   let properties = PropertiesReader("./config/api.properties");
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
   const CLAN_TAG = properties.get("CLAN_TAG");
   const BASE_URL = properties.get("BASE_URL");
-  const URL_MEMBERS = BASE_URL + "clans/" + encodeURIComponent(CLAN_TAG) + "/members";
+  const URL_MEMBERS = BASE_URL + "clans/" + encodeURIComponent(clantag) + "/members";
   console.log("getJSON.URL: " + URL_MEMBERS);
   let reqInstance = axios.create({
     headers: {
@@ -38,19 +40,20 @@ const getJSONReal = (req, res, next) => {
       next();
     })
     .catch((err) => {
-      console.error("Error: ", err.message);
+      req.m = "";
+      next();
     });
 };
 
 const getJSON = (req, res, next) => {
   let properties = PropertiesReader("./config/api.properties");
-  const DEBUG = properties.get("DEBUG"); 
+  const DEBUG = properties.get("DEBUG");
+  console.log("DEBUG members.js: " + DEBUG); 
   if(DEBUG == true) {
-    console.log("1 DEBUG: " + DEBUG);
     getJSONTestData(req, res, next);
   } else {
-    console.log("2 DEBUG: " + DEBUG);
-    getJSONReal(req, res, next);
+    var clantag = req.query.clantag;
+    getJSONReal(req, res, next, clantag);
   }
 }
 
@@ -63,6 +66,7 @@ router.get("/", function (req, res, next) {
     title: "Members",
     membersText: "Old Rebels",
     membersData: req.m.items,
+    membersDataLen: req.m.length,
   });
 });
 

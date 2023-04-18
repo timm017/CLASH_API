@@ -3,23 +3,23 @@ const axios = require("axios");
 var router = express.Router();
 const fs = require("fs");
 var PropertiesReader = require("properties-reader");
+var properties = PropertiesReader("./config/api.properties");
 
 /**
  * TEST data for top ranked clans by points (trophies)
  * config/json_topranks.json
  */
 const getJSONTestData = (req, res, next) => {
-  fs.readFile("./config/json_topranks.json", "utf8", function (err, data) {
+  const TEST_DATA_DIR = properties.get("TEST_DATA_DIR");
+  fs.readFile(TEST_DATA_DIR + "json_topranks.json", "utf8", function (err, data) {
     if (err) {
       return console.log(err);
     }
-    // data =  JSON.parse(data);
-    // data = data.sort((a, b) => {
-    //   if (a.clanPoints < b.clanPoints) {
-    //     return -1;
-    //   }
-    // });
-    req.t = JSON.parse(data);
+    data = JSON.parse(data);
+    data.items.sort(function (a, b) {
+      return b.clanPoints - a.clanPoints;
+    });
+    req.t = data;
     next();
   });
 }
@@ -29,31 +29,49 @@ const getJSONTestData = (req, res, next) => {
  * https://api.clashofclans.com/v1/clans?minClanPoints=55000&minClanLevel=10&limit=5
  * @returns - JSON
  */
-const getJSON = (userTag) => {
+const getJSONReal = (req, res, next) => {
   var properties = PropertiesReader("./config/api.properties");
-  const minClanPoints = 55000;
+  const minClanPoints = 57000;
   const minClanLevel = 10;
-  const limit = 5;
+  const limit = 45;
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
   const BASE_URL = properties.get("BASE_URL");
-  const URL_MEMBER = BASE_URL + "/clans?minClanPoints=" + minClanPoints + "&minClanLevel=" + minClanLevel + "&limit=" + limit;
+  const URL_CLANS = BASE_URL + "clans?minClanPoints=" + minClanPoints + "&minClanLevel=" + minClanLevel + "&limit=" + limit;
+  console.log("URL_CLANS: " + URL_CLANS);
   let reqInstance = axios.create({
     headers: {
       Authorization: `Bearer ${HOME_COC_TOKEN}`,
     },
   });
   reqInstance
-    .get(URL_MEMBER)
+    .get(URL_CLANS)
     .then((res) => {
-      myData = JSON.parse(JSON.stringify(res.data));
+      console.log('myData: ' + res.data);
+      // sort by clan points
+      res.data.items.sort(function (a, b) {
+        return b.clanPoints - a.clanPoints;
+      });
+      req.t = res.data;
+      next();
     })
     .catch((err) => {
       console.error("Error: ", err.message);
     });
 };
 
+const getJSON = (req, res, next) => {
+  let properties = PropertiesReader("./config/api.properties");
+  const DEBUG = properties.get("DEBUG");
+  console.log("DEBUG leagues: " + DEBUG);
+  if (DEBUG == true) {
+    getJSONTestData(req, res, next);
+  } else {
+    getJSONReal(req, res, next);
+  }
+}
+
 // Call function before router is rendered
-router.use(getJSONTestData);
+router.use(getJSON);
 
 /* GET clans page. */
 router.get("/", function (req, res, next) {

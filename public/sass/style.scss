@@ -99,6 +99,24 @@ div#home-main-container {
   div#home-container {
     align-items: center;
   }
+
+  input[name=clantag] {
+    width: 200px;
+    height: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+  }
+
+  button#clan-search {
+    width: 100px;
+    height: 30px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+  }
 }
 
 /***************************
@@ -126,6 +144,12 @@ div#home-main-container {
       align-items: center;
       justify-content: center;
     }
+  }
+
+  p.error {
+    color: red;
+    font-weight: bold;
+    font-size: 30px;
   }
 }
 

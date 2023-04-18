@@ -61,7 +61,7 @@ const getJSON = (req, res, next) => {
 }
 
 router.use(getJSONTestData);
-
+ 
 /* GET clans page. */
 router.get("/", function (req, res, next) {
   var userTag = req.query.usertag;

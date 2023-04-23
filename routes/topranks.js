@@ -60,6 +60,7 @@ const getJSONReal = (req, res, next) => {
 };
 
 const getJSON = (req, res, next) => {
+  topranks.printTest;
   let properties = PropertiesReader("./config/api.properties");
   const DEBUG = properties.get("DEBUG");
   console.log("DEBUG leagues: " + DEBUG);
@@ -82,4 +83,4 @@ router.get("/", function (req, res, next) {
   });
 });
 
-module.exports = router;
+module.exports = router;;

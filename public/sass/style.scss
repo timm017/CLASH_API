@@ -9,6 +9,7 @@ body {
 div#main-body {
   display: flex;
   margin-top: 50px;
+  justify-content: center;
 }
 
 a {
@@ -96,8 +97,25 @@ div#home-main-container {
   justify-content: center;
   align-items: center;
 
-  div#home-container {
-    align-items: center;
+  h1 {
+    padding: 30px;
+  }
+
+  div#home-main-stats-container {
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+
+    div.home-box-container {
+      display: flex;
+      border: 1px solid black;
+      padding: 10px;
+      flex-direction: column;
+
+      h2 {
+        display: flex;
+      }
+    }
   }
 
   input[name=clantag] {
@@ -122,7 +140,7 @@ div#home-main-container {
 /***************************
  ***  Members page
  ***************************/
- div#members-container {
+div#members-container {
   display: flex;
   justify-content: center;
   width: 100%;

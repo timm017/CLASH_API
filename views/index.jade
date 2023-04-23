@@ -4,6 +4,31 @@ block content
   div(id="home-main-container")
     h1 Welcome to #{title}
       div(id="home-container")
+         div(id="home-main-stats-container")
+            div(id="home-top-clans" class="home-box-container")
+              h2 Top Clans
+              ul
+                li this my test 1
+                li this my test 2
+                li this my test 3
+                li this my test 4
+                li this my test 5
+            div(id="home-top-clans" class="home-box-container")
+              h2 Top Players
+              ul
+                li this my test 1
+                li this my test 2
+                li this my test 3
+                li this my test 4
+                li this my test 5
+            div(id="home-top-clans" class="home-box-container")
+              h2 Top Versus
+              ul
+                li this my test 1
+                li this my test 2
+                li this my test 3
+                li this my test 4
+                li this my test 5
         p
           a(href="#{baseURL}topclan") Top Clans
         p
@@ -16,5 +41,5 @@ block content
           a(href="./members?clantag=%232L2JY80L2") 50 Thieves
         p   
           form(action="members" method="get" id="clan-search-form")
-            input(name="clantag", type="text", placeholder="Clan Tag")
+            input(name="clantag" type="text" placeholder="Clan Tag")
             button(id="clan-search") Search

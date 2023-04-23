@@ -13,9 +13,15 @@ To run:
 node app.js
 
 TODO:
+[] HOME UI
+  [] top 5 - players, clans, versus
+  [] Search clan
+  [] Search player
+[] favicon
+[] robots.txt
+[] certbox SSL
 [] refactor "members" to "players" to be consistent with API call
-[] home page - have popular main links
-[] footer
 [] footer & header links shared
 [] Sortable table columns
-[] Input fields to manually lookup clans
+[] Clan search - input field to lookup clan info
+[] Build and deploy from GIT

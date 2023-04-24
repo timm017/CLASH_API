@@ -57,8 +57,21 @@ const getJSON = (req, res, next) => {
   }
 }
 
+const getJSONTestDataClanInfo = (req, res, next) => {
+  const TEST_DATA_DIR = properties.get("TEST_DATA_DIR");
+  fs.readFile(TEST_DATA_DIR + "json_claninfo.json", "utf8", function (err, data) {
+    if (err) {
+      return console.log(err);
+    }
+    data = JSON.parse(data);
+    req.c = data;
+    next();
+  });
+}
+
 // execute before render
 router.use(getJSON);
+router.use(getJSONTestDataClanInfo);
 
 /* GET members page. */
 router.get("/", function (req, res, next) {
@@ -67,6 +80,7 @@ router.get("/", function (req, res, next) {
     membersText: "Old Rebels",
     membersData: req.m.items,
     membersDataLen: req.m.length,
+    clanInfo: req.c,
   });
 });
 

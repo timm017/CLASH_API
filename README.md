@@ -13,13 +13,15 @@ To run:
 node app.js
 
 TODO:
+[] clan info - need clan name at top and stats
 [] HOME UI
   [] top 5 - players, clans, versus
   [] Search clan
   [] Search player
+[] home page tops, link clans and players
 [] favicon
 [] robots.txt
-[] certbox SSL
+[] certbot SSL
 [] refactor "members" to "players" to be consistent with API call
 [] footer & header links shared
 [] Sortable table columns

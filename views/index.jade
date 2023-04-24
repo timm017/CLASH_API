@@ -4,42 +4,42 @@ block content
   div(id="home-main-container")
     h1 Welcome to #{title}
       div(id="home-container")
-         div(id="home-main-stats-container")
-            div(id="home-top-clans" class="home-box-container")
-              h2 Top Clans
-              ul
-                li this my test 1
-                li this my test 2
-                li this my test 3
-                li this my test 4
-                li this my test 5
-            div(id="home-top-clans" class="home-box-container")
-              h2 Top Players
-              ul
-                li this my test 1
-                li this my test 2
-                li this my test 3
-                li this my test 4
-                li this my test 5
-            div(id="home-top-clans" class="home-box-container")
-              h2 Top Versus
-              ul
-                li this my test 1
-                li this my test 2
-                li this my test 3
-                li this my test 4
-                li this my test 5
-        p
-          a(href="#{baseURL}topclan") Top Clans
-        p
-          a(href="#{baseURL}topplayers") Top Players
-        p
-          a(href="./leagues") Current Leagues
-        p 
-          a(href="./members?clantag=%232LPCCR8U") Old Rebels
-        p 
-          a(href="./members?clantag=%232L2JY80L2") 50 Thieves
-        p   
-          form(action="members" method="get" id="clan-search-form")
-            input(name="clantag" type="text" placeholder="Clan Tag")
-            button(id="clan-search") Search
+        div(id="home-links")
+          p
+            form(action="members" method="get" id="clan-search-form")
+              input(value="#UVVQLY2" name="clantag" type="text" placeholder="Clan Tag")
+              button(id="clan-search") Search
+        div(id="home-main-stats-container")
+          div(id="home-top-clans" class="home-box-container")
+            h2 Top Clans
+            each d, i in topClansHomeData
+              tr
+                div(class="top-item")
+                  td #{i + 1})
+                  td 
+                    img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
+                  td 
+                    a(href="") #{d.name} 
+                      span(class="clan-tag") (#{d.tag})
+          div(id="home-top-players" class="home-box-container")
+            h2 Top Players
+            each d, i in topPlayersHomeData
+              tr
+                div(class="top-item")
+                  td #{i + 1})
+                  td 
+                    img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
+                  td 
+                    a(href="") #{d.name} 
+                      span(class="clan-tag") (#{d.tag})
+          div(id="home-top-versus" class="home-box-container")
+            h2 Top Versus
+            each d, i in topVersusHomeData
+              tr
+                div(class="top-item")
+                  td #{i + 1})
+                  td 
+                    img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
+                  td 
+                    a(href="") #{d.name} 
+                      span(class="clan-tag") (#{d.tag})

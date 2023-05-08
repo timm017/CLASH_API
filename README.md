@@ -13,11 +13,12 @@ To run:
 node app.js
 
 TODO:
-[] clan info - need clan name at top and stats
 [] HOME UI
   [] top 5 - players, clans, versus
   [] Search clan
   [] Search player
+  [] footer
+[] clan info - need clan name at top and stats
 [] home page tops, link clans and players
 [] favicon
 [] robots.txt

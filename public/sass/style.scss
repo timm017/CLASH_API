@@ -19,6 +19,9 @@ a {
   color: $nav-font-link-default;
 }
 
+/***************************
+ ***  Header START
+ ***************************/
 a.header-link {
   text-decoration: none;
   color: $nav-font-link;
@@ -40,6 +43,48 @@ header {
 header * {
   display: inline;
 }
+
+/***************************
+ ***  Header END
+ ***************************/
+
+/***************************
+ ***  Footer START
+ ***************************/
+a.footer-link {
+  text-decoration: none;
+  color: $nav-font-link;
+}
+
+footer {
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 25px 0 black;
+  padding-left: 30px;
+}
+
+nav {
+  li {
+    a:hover {
+      color: $nav-header-footer-link-hover;
+    }
+  }
+}
+
+footer * {
+  display: inline;
+}
+
+/***************************
+ ***  Footer END
+ ***************************/
 
 span.role {
   &.leader {
@@ -105,6 +150,7 @@ div#home-main-container {
 
   div#home-main-stats-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 
     div.home-box-container {
@@ -136,10 +182,12 @@ div#home-main-container {
       div.top-item {
         padding: 10px;
         font-size: 25px;
+
         span.clan-tag {
           color: gray;
           font-size: 14px;
         }
+
         img.clan-badge {
           width: 40px;
           vertical-align: middle;
@@ -150,7 +198,7 @@ div#home-main-container {
   }
 
   input[name=clantag] {
-    width: 200px;
+    width: 80%;
     height: 20px;
     border: 1px solid black;
     border-radius: 5px;

@@ -14,23 +14,55 @@ const getJSONTestDataTopClans = (req, res, next) => {
     data.items.sort(function (a, b) {
       return b.clanPoints - a.clanPoints;
     });
-    req.t = data;
+    req.c = data;
+    next();
+  });
+}
+
+const getJSONTestDataTopPlayers = (req, res, next) => {
+  const TEST_DATA_DIR = properties.get("TEST_DATA_DIR");
+  fs.readFile(TEST_DATA_DIR + "json_topranks.json", "utf8", function (err, data) {
+    if (err) {
+      return console.log(err);
+    }
+    data = JSON.parse(data);
+    data.items.sort(function (a, b) {
+      return b.clanPoints - a.clanPoints;
+    });
+    req.p = data;
+    next();
+  });
+}
+
+const getJSONTestDataTopVersus = (req, res, next) => {
+  const TEST_DATA_DIR = properties.get("TEST_DATA_DIR");
+  fs.readFile(TEST_DATA_DIR + "json_topranks.json", "utf8", function (err, data) {
+    if (err) {
+      return console.log(err);
+    }
+    data = JSON.parse(data);
+    data.items.sort(function (a, b) {
+      return b.clanPoints - a.clanPoints;
+    });
+    req.v = data;
     next();
   });
 }
 
 // Call function before router is rendered
 router.use(getJSONTestDataTopClans);
+router.use(getJSONTestDataTopPlayers);
+router.use(getJSONTestDataTopVersus);
 
 /* GET home page. */
 router.get("/", function (req, res, next) {
   const BASE_URL = properties.get("BASE_URL");
   res.render("index", {
-    title: "Clash of Clans Stats and Info: ",
+    title: "CoC: Search for a clan:: ",
     baseURL: BASE_URL,
-    topClansHomeData: req.t.items,
-    topPlayersHomeData: req.t.items,
-    topVersusHomeData: req.t.items,
+    topClansHomeData: req.c.items,
+    topPlayersHomeData: req.p.items,
+    topVersusHomeData: req.v.items,
   });
 });
 

@@ -2,13 +2,16 @@ extends layout
 
 block content
   div(id="home-main-container")
-    h1 Welcome to #{title}
+    h1 #{title}
       div(id="home-container")
         div(id="home-links")
           p
             form(action="members" method="get" id="clan-search-form")
               button(id="clan-search") Search
               input(value="#UVVQLY2" name="clantag" type="text" placeholder="Clan Tag")
+          p Old Rebels: #2LPCCR8U
+          p 50 Thieves: #2L2JY80L2
+          p Hell Drinkers: #UVVQLY2
         div
           h2 Top Rankings
         div(id="home-main-stats-container")

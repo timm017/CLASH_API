@@ -9,7 +9,7 @@ var properties = PropertiesReader("./config/api.properties");
  * TEST data for top ranked clans by points (trophies)
  * config/json_topranks.json
  */
-const getJSONTestData = (req, res, next) => {
+const getJSONTestDataTrophies = (req, res, next) => {
   const TEST_DATA_DIR = properties.get("TEST_DATA_DIR");
   fs.readFile(TEST_DATA_DIR + "json_topranks.json", "utf8", function (err, data) {
     if (err) {
@@ -25,11 +25,34 @@ const getJSONTestData = (req, res, next) => {
 }
 
 /**
+ * Test data by level
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
+const getJSONTestDataLvl = (req, res, next) => {
+  const TEST_DATA_DIR = properties.get("TEST_DATA_DIR");
+  fs.readFile(TEST_DATA_DIR + "json_toplvlclans.json", "utf8", function (err, data) {
+    if (err) {
+      return console.log(err);
+    }
+    data = JSON.parse(data);
+    data.items.sort(function (a, b) {
+      return b.clanLevel - a.clanLevel;
+    });
+    req.t = data;
+    next();
+  });
+}
+
+
+/**
+ * Top clans by trophies
  * getJSON - Makes the API call
  * https://api.clashofclans.com/v1/clans?minClanPoints=55000&minClanLevel=10&limit=5
  * @returns - JSON
  */
-const getJSONReal = (req, res, next) => {
+const getJSONRealTrophies = (req, res, next) => {
   var properties = PropertiesReader("./config/api.properties");
   const minClanPoints = 57000;
   const minClanLevel = 10;
@@ -59,14 +82,64 @@ const getJSONReal = (req, res, next) => {
     });
 };
 
+/**
+ * Top clans by level
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
+const getJSONRealLvl = (req, res, next) => {
+  var properties = PropertiesReader("./config/api.properties");
+  const minClanLevel = 35;
+  const limit = 20;
+  const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
+  const BASE_URL = properties.get("BASE_URL");
+  const URL_CLANS = BASE_URL + "clans?minClanLevel=" + minClanLevel + "&limit=" + limit;
+  console.log("URL_CLANS: " + URL_CLANS);
+  let reqInstance = axios.create({
+    headers: {
+      Authorization: `Bearer ${HOME_COC_TOKEN}`,
+    },
+  });
+  reqInstance
+    .get(URL_CLANS)
+    .then((res) => {
+      console.log('myData: ' + res.data);
+      // sort by clan lvl
+      res.data.items.sort(function (a, b) {
+        return b.clanLevel - a.clanLevel;
+      });
+      req.t = res.data;
+      next();
+    })
+    .catch((err) => {
+      console.error("Error: ", err.message);
+    });
+};
+
+/**
+ * Called for every request
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
 const getJSON = (req, res, next) => {
+  var mode = req.query.mode;
   let properties = PropertiesReader("./config/api.properties");
   const DEBUG = properties.get("DEBUG");
-  console.log("DEBUG leagues: " + DEBUG);
-  if (DEBUG == true) {
-    getJSONTestData(req, res, next);
+  console.log("DEBUG leagues: " + DEBUG + " mode: " + mode);
+  if(mode == "lvl") {
+    if (DEBUG == true) {
+      getJSONTestDataLvl(req, res, next);
+    } else {
+      getJSONRealLvl(req, res, next);
+    }
   } else {
-    getJSONReal(req, res, next);
+    if (DEBUG == true) {
+      getJSONTestDataTrophies(req, res, next);
+    } else {
+      getJSONRealTrophies(req, res, next);
+    }
   }
 }
 

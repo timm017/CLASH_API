@@ -24,7 +24,6 @@ const getJSONTestData = (req, res, next) => {
 const getJSONReal = (req, res, next, clantag) => {
   let properties = PropertiesReader("./config/api.properties");
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
-  const CLAN_TAG = properties.get("CLAN_TAG");
   const BASE_URL = properties.get("BASE_URL");
   const URL_MEMBERS = BASE_URL + "clans/" + encodeURIComponent(clantag) + "/members";
   console.log("getJSON.URL: " + URL_MEMBERS);
@@ -71,7 +70,7 @@ const getJSONTestDataClanInfo = (req, res, next) => {
 
 // execute before render
 router.use(getJSON);
-router.use(getJSONTestDataClanInfo);
+// router.use(getJSONTestDataClanInfo);
 
 /* GET members page. */
 router.get("/", function (req, res, next) {

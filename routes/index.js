@@ -58,7 +58,7 @@ router.use(getJSONTestDataTopVersus);
 router.get("/", function (req, res, next) {
   const BASE_URL = properties.get("BASE_URL");
   res.render("index", {
-    title: "CoC: Search for a clan:: ",
+    title: "Search for a clan: ",
     baseURL: BASE_URL,
     topClansHomeData: req.c.items,
     topPlayersHomeData: req.p.items,

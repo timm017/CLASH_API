@@ -23,7 +23,7 @@ block content
                 img(src="#{d.league.iconUrls.small}")
               td #{d.expLevel}
               td
-                a(href="./member?usertag=" + d.tag.replace('#','')) #{d.name}
+                a(href="./member?usertag=" + d.tag.replace('#', '%23')) #{d.name}
               td
                 if d.role == "leader"
                   span(class="role leader") Leader

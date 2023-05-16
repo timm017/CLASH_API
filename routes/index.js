@@ -7,7 +7,7 @@ var properties = PropertiesReader("./config/api.properties");
 router.get("/", function (req, res, next) {
   const BASE_URL = properties.get("BASE_URL");
   res.render("index", {
-    title: "Clash of clan stats and info",
+    title: "Stats and info",
     baseURL: BASE_URL
   });
 });

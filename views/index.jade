@@ -2,19 +2,84 @@ extends layout
 
 block content
   div(id="home-main-container")
-    h1 Welcome to #{title}
+    h1 #{title}
       div(id="home-container")
-        p
-          a(href="#{baseURL}topclan") Top Clans
-        p
-          a(href="#{baseURL}topplayers") Top Players
-        p
-          a(href="./leagues") Current Leagues
-        p 
-          a(href="./members?clantag=%232LPCCR8U") Old Rebels
-        p 
-          a(href="./members?clantag=%232L2JY80L2") 50 Thieves
-        p   
-          form(action="members" method="get" id="clan-search-form")
-            input(name="clantag", type="text", placeholder="Clan Tag")
-            button(id="clan-search") Search
+        div(id="home-links")
+          p
+            form(action="members" method="get" id="clan-search-form")
+              button(id="clan-search") Search
+              input(value="#UVVQLY2" name="clantag" type="text" placeholder="Clan Tag")
+          p Old Rebels: #2LPCCR8U
+          p 50 Thieves: #2L2JY80L2
+          p Hell Drinkers: #UVVQLY2
+        div
+          h2 Top Rankings
+        div(id="home-main-stats-container")
+          div(id="home-top-clans" class="home-box-container")
+            h2 Highest Trophies (Clans)
+            each d, i in topClansHomeData
+              tr
+                div(class="top-item")
+                  td #{i + 1}
+                  td 
+                    img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
+                  td 
+                    a(href="") #{d.name} 
+                      span(class="clan-tag") (#{d.tag})
+          div(id="home-top-players" class="home-box-container")
+              h2 Highest Trophies (Players)
+              each d, i in topPlayersHomeData
+                tr
+                  div(class="top-item")
+                    td #{i + 1}
+                    td 
+                      img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
+                    td 
+                      a(href="") #{d.name} 
+                        span(class="clan-tag") (#{d.tag})
+            div(id="home-top-versus" class="home-box-container")
+              h2 Highest Trophies (Versus)
+              each d, i in topVersusHomeData
+                tr
+                  div(class="top-item")
+                    td #{i + 1}
+                    td 
+                      img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
+                    td 
+                      a(href="") #{d.name} 
+                        span(class="clan-tag") (#{d.tag})
+                    div(id="home-main-stats-container")
+          div(id="home-top-clans" class="home-box-container")
+            h2 Highest Trophies (Clans)
+            each d, i in topClansHomeData
+              tr
+                div(class="top-item")
+                  td #{i + 1}
+                  td 
+                    img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
+                  td 
+                    a(href="") #{d.name} 
+                      span(class="clan-tag") (#{d.tag})
+          div(id="home-top-players" class="home-box-container")
+              h2 Highest Trophies (Players)
+              each d, i in topPlayersHomeData
+                tr
+                  div(class="top-item")
+                    td #{i + 1}
+                    td 
+                      img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
+                    td 
+                      a(href="") #{d.name} 
+                        span(class="clan-tag") (#{d.tag})
+            div(id="home-top-versus" class="home-box-container")
+              h2 Highest Trophies (Versus)
+              each d, i in topVersusHomeData
+                tr
+                  div(class="top-item")
+                    td #{i + 1}
+                    td 
+                      img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
+                    td 
+                      a(href="") #{d.name} 
+                        span(class="clan-tag") (#{d.tag})
+          

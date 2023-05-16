@@ -18,7 +18,9 @@ block content
             td #{i + 1}
             td 
               img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
-            td #{d.tag}
-            td #{d.name}
+            td 
+              a(href="./members?clantag=#{d.tag.replace('#', '%23')}" class="tag") #{d.tag}
+            td 
+              a(href="./members?clantag=#{d.tag.replace('#', '%23')}" class="clan-name") #{d.name}
             td #{d.clanLevel}
             td #{d.clanPoints}

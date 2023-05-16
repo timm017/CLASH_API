@@ -24,7 +24,7 @@ block content
             td #{memberData.warStars}
             td #{memberData.role}
             td
-              a(href="./members?clantag=#{memberData.clan.tag}" class="member-clan-badge")
+              a(href="./members?clantag=#{memberData.clan.tag.replace('#', '%23')}" class="member-clan-badge")
                 img(src="#{memberData.clan.badgeUrls.small}") 
                 p #{memberData.clan.name} 
             td #{memberData.clan.clanLevel}

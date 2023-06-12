@@ -52,6 +52,7 @@ const getJSON = (req, res, next) => {
     getJSONTestData(req, res, next);
   } else {
     var clantag = req.query.clantag;
+    console.log("clantag: " + clantag);
     getJSONReal(req, res, next, clantag);
   }
 }

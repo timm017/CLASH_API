@@ -9,6 +9,11 @@ block content
             form(action="members" method="get" id="clan-search-form")
               button(id="clan-search") Search
               input(value="#UVVQLY2" name="clantag" type="text" placeholder="Clan Tag")
+          p
+            form(action="members" method="get" id="clan-search-form")
+              button(id="clan-search-by-name") Search by name
+              input(value="" name="clanname" type="text" placeholder="Clan Name")
+              input(name="byName" value="true" type="hidden")
           div(class="example-container")
             p(class="example") Old Rebels: 
               a(href="./members?clantag=%232LPCCR8U") #2LPCCR8U

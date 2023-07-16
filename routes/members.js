@@ -8,7 +8,7 @@ var properties = PropertiesReader("./config/api.properties");
 // TEST - config/json_members.json
 const getJSONTestData = (req, res, next) => {
   const TEST_DATA_DIR = properties.get("TEST_DATA_DIR");
-  fs.readFile(TEST_DATA_DIR + "json_members.json", "utf8", function (err, data) {
+  fs.readFile(TEST_DATA_DIR + "json_clan.json", "utf8", function (err, data) {
     if (err) {
       return console.log(err);
     }
@@ -17,15 +17,11 @@ const getJSONTestData = (req, res, next) => {
   });
 }
 
-/**
- * getJSON - Makes the API call
- * @returns - JSON
- */
 const getJSONReal = (req, res, next, clantag) => {
   let properties = PropertiesReader("./config/api.properties");
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
   const BASE_URL = properties.get("BASE_URL");
-  const URL_MEMBERS = BASE_URL + "clans/" + encodeURIComponent(clantag) + "/members";
+  const URL_MEMBERS = BASE_URL + "clans/" + encodeURIComponent(clantag);
   console.log("getJSON.URL: " + URL_MEMBERS);
   let reqInstance = axios.create({
     headers: {
@@ -44,11 +40,23 @@ const getJSONReal = (req, res, next, clantag) => {
     });
 };
 
+/**
+ * Gets called before all other methods
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ */
 const getJSON = (req, res, next) => {
+  var byName = req.query.byName;
+  var clanname = req.query.clanname;
   let properties = PropertiesReader("./config/api.properties");
   const DEBUG = properties.get("DEBUG");
-  console.log("DEBUG members.js: " + DEBUG); 
-  if(DEBUG == true) {
+  console.log("DEBUG members.js: " + DEBUG);
+  if(byName == "true") {
+    console.log("byName: " + byName + " clanname: " + clanname);
+    getClanByName(req, res, next, clanname);
+  }
+  if (DEBUG == true) {
     getJSONTestData(req, res, next);
   } else {
     var clantag = req.query.clantag;
@@ -57,17 +65,37 @@ const getJSON = (req, res, next) => {
   }
 }
 
-const getJSONTestDataClanInfo = (req, res, next) => {
-  const TEST_DATA_DIR = properties.get("TEST_DATA_DIR");
-  fs.readFile(TEST_DATA_DIR + "json_claninfo.json", "utf8", function (err, data) {
-    if (err) {
-      return console.log(err);
-    }
-    data = JSON.parse(data);
-    req.c = data;
-    next();
+/**
+ * Search clans by NAME
+ * @param {*} req 
+ * @param {*} res 
+ * @param {*} next 
+ * @param {*} clanname 
+ */
+//https://api.clashofstats.com/search/clans?q=old+rebels&minMembers=1&maxMembers=50&locationId=global&minClanLevel=1
+const getClanByName = (req, res, next, clanname) => {
+  let properties = PropertiesReader("./config/api.properties");
+  const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
+  const BASE_URL = properties.get("BASE_URL");
+  const URL_CLAN_BY_NAME = BASE_URL + "clans?name=" + encodeURIComponent("old rebels") + "&minClanLevel=28";
+  console.log("getJSON.URL: " + URL_CLAN_BY_NAME);
+  let reqInstance = axios.create({
+    headers: {
+      Authorization: `Bearer ${HOME_COC_TOKEN}`,
+    },
   });
-}
+  reqInstance
+    .get(URL_CLAN_BY_NAME)
+    .then((res) => {
+      req.m = res.data;
+      console.log('req.m: ' + JSON.stringify(req.m));
+      // next();
+    })
+    .catch((err) => {
+      req.m = "";
+      // next();
+    });
+};
 
 // execute before render
 router.use(getJSON);
@@ -75,12 +103,19 @@ router.use(getJSON);
 
 /* GET members page. */
 router.get("/", function (req, res, next) {
+  var showJSON = req.query.showJSON;
   res.render("members", {
     title: "Members",
     membersText: "Old Rebels",
-    membersData: req.m.items,
+    membersData: req.m.memberList,
+    clanName: req.m.name,
     membersDataLen: req.m.length,
     clanInfo: req.c,
+    showJSON: showJSON,
+    clanBadge: req.m.badgeUrls.large,
+    clanWarWins: req.m.warWins,
+    clanWarWinStreak: req.m.warWinStreak,
+    warLeague: req.m.warLeague.name,
   });
 });
 

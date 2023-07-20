@@ -13,14 +13,20 @@ To run:
 node app.js
 
 TODO:
+[] Members/clan page
+  [X] Add Clan name to members page
+  [X] add war record
+  [] "i" info icon to show detail stats
 [] HOME UI
   [] top 5 - players, clans, versus
   [] Search clan
   [] Search player
-  [] footer
+  [] footer (share with header nav)
+[] add "showJSON=t" to display JSON results on page
+[] split up VERSUS and VILLAGE
 [] clan info - need clan name at top and stats
 [] home page tops, link clans and players
-[] favicon
+[X] favicon
 [] robots.txt
 [] certbot SSL
 [] refactor "members" to "players" to be consistent with API call

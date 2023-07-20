@@ -45,7 +45,6 @@ const getJSONTestDataLvl = (req, res, next) => {
   });
 }
 
-
 /**
  * Top clans by trophies
  * getJSON - Makes the API call

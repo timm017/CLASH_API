@@ -5,34 +5,43 @@ block content
     if(membersDataLen == 0)
       p(class="error") No members found
     else
-      h1 #{clanInfo.name}
-      table(id="members-table")
-        thead
-          tr
-            th League
-            th Exp
-            th Name
-            th Role
-            th Trophies
-            th Dono
-            th Dono Rec
-        tbody
-          each d, i in membersData
+      div(class="inner-container")
+        div(class="clan-title")
+          h1 #{clanName}
+            p(class="clan-info") 
+              span(class="clan-info-item") wins: #{clanWarWins}
+              span(class="clan-info-item") streak: #{clanWarWinStreak}
+              span(class="clan-info-item") #{warLeague}
+          img(src="#{clanBadge}")
+        table(id="members-table")
+          thead
             tr
-              td
-                img(src="#{d.league.iconUrls.small}")
-              td #{d.expLevel}
-              td
-                a(href="./member?usertag=" + d.tag.replace('#', '%23')) #{d.name}
-              td
-                if d.role == "leader"
-                  span(class="role leader") Leader
-                else if d.role == "coLeader"
-                  span(class="role coleader") Coleader
-                else if d.role == "admin"
-                  span(class="role elder") Elder
-                else 
-                  span(class='role') #{d.role}
-              td #{d.trophies} 
-              td #{d.donations}
-              td #{d.donationsReceived}
+              th League
+              th Exp
+              th Name
+              th Role
+              th Trophies
+              th Dono
+              th Dono Rec
+          tbody
+            each d, i in membersData
+              tr
+                td
+                  img(src="#{d.league.iconUrls.small}")
+                td #{d.expLevel}
+                td
+                  a(href="./member?usertag=" + d.tag.replace('#', '%23')) #{d.name}
+                td
+                  if d.role == "leader"
+                    span(class="role leader") Leader
+                  else if d.role == "coLeader"
+                    span(class="role coleader") Coleader
+                  else if d.role == "admin"
+                    span(class="role elder") Elder
+                  else 
+                    span(class='role') #{d.role}
+                td #{d.trophies} 
+                td #{d.donations}
+                td #{d.donationsReceived}
+        if (showJSON == "t")
+          code #{JSON.stringify(membersData)}

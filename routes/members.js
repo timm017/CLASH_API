@@ -37,6 +37,7 @@ const getJSONReal = (req, res, next, clantag) => {
     .catch((err) => {
       req.m = "";
       next();
+      res.redirect('/error');
     });
 };
 
@@ -47,6 +48,7 @@ const getJSONReal = (req, res, next, clantag) => {
  * @param {*} next 
  */
 const getJSON = (req, res, next) => {
+  console.log("members.js getJSON");
   var byName = req.query.byName;
   var clanname = req.query.clanname;
   let properties = PropertiesReader("./config/api.properties");

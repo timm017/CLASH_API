@@ -32,21 +32,26 @@ div#members-container {
     }
   }
 
-  table#members-table th,
-  tr,
-  td {
-    text-align: left;
-    padding: 10px;
+  table#members-table {
 
-    img {
-      width: 25px;
-      height: 25px;
-    }
+    padding-bottom: 50px;
 
-    a.members-clan-badge {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    th,
+    tr,
+    td {
+      text-align: left;
+      padding: 10px;
+
+      img {
+        width: 25px;
+        height: 25px;
+      }
+
+      a.members-clan-badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
     }
   }
 

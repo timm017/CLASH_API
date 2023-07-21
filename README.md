@@ -22,6 +22,7 @@ TODO:
   [] Search clan
   [] Search player
   [] footer (share with header nav)
+[] Error handling
 [] add "showJSON=t" to display JSON results on page
 [] split up VERSUS and VILLAGE
 [] clan info - need clan name at top and stats

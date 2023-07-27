@@ -22,6 +22,10 @@ TODO:
   [] Search clan
   [] Search player
   [] footer (share with header nav)
+[] PLAYERS
+  [] Highest XP
+  [] Most trophies
+  [] Most war stars
 [] Error handling
 [] add "showJSON=t" to display JSON results on page
 [] split up VERSUS and VILLAGE

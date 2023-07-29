@@ -11,6 +11,7 @@ var memberRouter = require("./routes/member");
 var topranksRouter = require("./routes/topranks");
 var leaguesRouter = require("./routes/leagues");
 var errorRouter = require("./routes/error");
+var topPlayersRouter = require("./routes/topplayers");
 
 var app = express();
 
@@ -33,6 +34,7 @@ app.use("/member", memberRouter);
 app.use("/topranks", topranksRouter);
 app.use("/leagues", leaguesRouter);
 app.use("/error", errorRouter);
+app.use("/topplayers", topPlayersRouter);
 
 app.listen(port, function () {
   console.log("Express server listening on port: " + port);

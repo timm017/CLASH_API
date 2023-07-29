@@ -1,0 +1,29 @@
+extends layout
+
+block content
+  div(id="members-container")
+    if(membersDataLen == 0)
+      p(class="error") No players found
+    else
+      div(class="inner-container")
+        table(id="members-table")
+          thead
+            tr
+              th rank
+              th name
+              th exp
+              th trophies
+              th clan
+          tbody
+            each d, i in topPlayersData
+              tr
+                td #{d.rank}
+                td
+                  a(href="./member?usertag=" + d.tag.replace('#', '%23')) #{d.name}
+                td #{d.expLevel} 
+                td #{d.trophies}
+                td 
+                  a(href="./members?clantag=" + d.clan.tag.replace('#', '%23')) #{d.clan.name}
+                  img(src="#{d.clan.badgeUrls.small}")
+        if (showJSON == "t")
+          code #{JSON.stringify(topPlayersData)}

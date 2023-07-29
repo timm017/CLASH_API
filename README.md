@@ -39,3 +39,6 @@ TODO:
 [] Sortable table columns
 [] Clan search - input field to lookup clan info
 [] Build and deploy from GIT
+
+[] locations list let use pick
+  [] USA = 32000001

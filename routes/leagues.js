@@ -15,6 +15,12 @@ function getJSONTestData(req, res, next) {
       return console.log(err);
     }
     req.l = JSON.parse(data);
+    let sortedData = req.l.items.sort((a, b) => {
+      if (a.id > b.id) {
+        return -1;
+      }
+    });
+    req.l = sortedData;
     next();
   });
 }
@@ -26,18 +32,23 @@ function getJSONTestData(req, res, next) {
 const getJSONReal = (req, res, next) => {
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
   const BASE_URL = properties.get("BASE_URL");
-  const URL_MEMBER = BASE_URL + "/leagues/";
-  console.log("URL: " + URL_MEMBER);
+  const URL_LEAGUES = BASE_URL + "leagues/";
+  console.log("URL: " + URL_LEAGUES);
   let reqInstance = axios.create({
     headers: {
       Authorization: `Bearer ${HOME_COC_TOKEN}`,
     },
   });
   reqInstance
-    .get(URL_MEMBER)
+    .get(URL_LEAGUES)
     .then((res) => {
-      // console.table("resdata: " + JSON.stringify(res.data));
       myData = JSON.parse(JSON.stringify(res.data));
+      req.l = res.data.items.sort((a, b) => {
+        if (a.id > b.id) {
+          return -1;
+        }
+      });
+      next();
     })
     .catch((err) => {
       console.error("Error: ", err.message);
@@ -62,7 +73,7 @@ router.get("/", function (req, res, next) {
   res.render("leagues", {
     title: "Leagues",
     leagueText: "Leagues info",
-    leagueData: req.l.items,
+    leagueData: req.l,
   });
 });
 

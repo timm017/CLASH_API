@@ -16,10 +16,13 @@ TODO:
 [] Members/clan page
   [X] Add Clan name to members page
   [X] add war record
-  [] "i" info icon to show detail stats
+  [?] "i" info icon to show detail stats
 [] HOME UI
   [] top 5 - players, clans, versus
-  [] Search clan
+  [] create toggle to search "TAG vs NAME"
+    [] TAG
+    [] NAME
+  [X] Search clan
   [] Search player
   [] footer (share with header nav)
 [] PLAYERS
@@ -27,7 +30,7 @@ TODO:
   [] Most trophies
   [] Most war stars
 [] Error handling
-[] add "showJSON=t" to display JSON results on page
+[X] add "showJSON=t" to display JSON results on page
 [] split up VERSUS and VILLAGE
 [] clan info - need clan name at top and stats
 [] home page tops, link clans and players

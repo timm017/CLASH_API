@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  div(id="search-clans-container")
+    if(searchClansDataLen == 0)
+      p(class="error") No clans found
+    else
+      div(class="inner-container")
+        div(class="search-clans-title")
+        table(id="search-clans-table")
+          thead
+            tr
+              th 
+              th Name
+              th Level
+              th War Frequency
+              th Members
+              th Win Streak
+          tbody
+            each c, i in searchClansData
+              tr
+                td
+                  img(src="#{c.badgeUrls.small}" class="clan-badge" alt="Clan badge")
+                td
+                  a(href="./members?clantag=" + c.tag.replace('#', '%23')) #{c.name} 
+                td #{c.clanLevel}
+                td #{c.warFrequency}
+                th #{c.members}
+                th #{c.warWinStreak}
+        if (showJSON == "t")
+          code #{JSON.stringify(searchClansData)}

@@ -12,6 +12,7 @@ var topranksRouter = require("./routes/topranks");
 var leaguesRouter = require("./routes/leagues");
 var errorRouter = require("./routes/error");
 var topPlayersRouter = require("./routes/topplayers");
+var clansByName = require("./routes/searchclans");
 
 var app = express();
 
@@ -35,6 +36,7 @@ app.use("/topranks", topranksRouter);
 app.use("/leagues", leaguesRouter);
 app.use("/error", errorRouter);
 app.use("/topplayers", topPlayersRouter);
+app.use("/searchclans", clansByName);
 
 app.listen(port, function () {
   console.log("Express server listening on port: " + port);

@@ -2,25 +2,25 @@ extends layout
 
 block content
   div(id="home-main-container")
-    h1 #{title}
-      div(id="home-container")
+    h1 #{title} DEBUG: #{isDebug}
         div(id="home-links")
           p
             form(action="members" method="get" id="clan-search-form")
               button(id="clan-search") Search
               input(value="#UVVQLY2" name="clantag" type="text" placeholder="Clan Tag")
           p
-            form(action="members" method="get" id="clan-search-form")
+            form(action="searchclans" method="get" id="clan-search-form")
               button(id="clan-search-by-name") Search by name
               input(value="" name="clanname" type="text" placeholder="Clan Name")
               input(name="byName" value="true" type="hidden")
-          div(class="example-container")
-            p(class="example") Old Rebels: 
-              a(href="./members?clantag=%232LPCCR8U") #2LPCCR8U
-            p(class="example") 50 Thieves: 
-              a(href="./members?clantag=%232L2JY80L2") #2L2JY80L2
-            p(class="example") Hell Drinkers: 
-              a(href="./members?clantag=%23UVVQLY2") #UVVQLY2
+          if(showExamples === true)
+            div(class="example-container")
+              p(class="example") Old Rebels: 
+                a(href="./members?clantag=%232LPCCR8U") #2LPCCR8U
+              p(class="example") 50 Thieves: 
+                a(href="./members?clantag=%232L2JY80L2") #2L2JY80L2
+              p(class="example") Hell Drinkers: 
+                a(href="./members?clantag=%23UVVQLY2") #UVVQLY2
         div
           h2 Top Rankings
         div(id="home-main-stats-container")

@@ -15,6 +15,9 @@ div#main-body {
   display: flex;
   margin-top: 50px;
   justify-content: center;
+  .inner-container {
+    margin-bottom: 50px;
+  }
 }
 
 a {

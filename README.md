@@ -9,6 +9,11 @@ npm install properties-reader
 # used for package.json npm start
 npm install concurrently
 
+# Notes
+/leagues/29000022/seasons/2023-06
+leagueId = 29000022
+seasonId = 2023-06
+
 To run:
 node app.js
 

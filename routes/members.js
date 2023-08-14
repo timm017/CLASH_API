@@ -48,21 +48,13 @@ const getJSONReal = (req, res, next, clantag) => {
  * @param {*} next 
  */
 const getJSON = (req, res, next) => {
-  console.log("members.js getJSON");
-  var byName = req.query.byName;
-  var clanname = req.query.clanname;
   let properties = PropertiesReader("./config/api.properties");
   const DEBUG = properties.get("DEBUG");
-  console.log("DEBUG members.js: " + DEBUG);
-  if(byName == "true") {
-    console.log("byName: " + byName + " clanname: " + clanname);
-    getClanByName(req, res, next, clanname);
-  }
+  var clantag = req.query.clantag;
+  console.log("DEBUG members.js: CLANTAG-> " + clantag + " DEBUG-> " + DEBUG);
   if (DEBUG == true) {
     getJSONTestData(req, res, next);
   } else {
-    var clantag = req.query.clantag;
-    console.log("clantag: " + clantag);
     getJSONReal(req, res, next, clantag);
   }
 }
@@ -90,7 +82,7 @@ const getClanByName = (req, res, next, clanname) => {
     .get(URL_CLAN_BY_NAME)
     .then((res) => {
       req.m = res.data;
-      console.log('req.m: ' + JSON.stringify(req.m));
+      // console.log('req.m: ' + JSON.stringify(req.m));
       // next();
     })
     .catch((err) => {

@@ -4,6 +4,7 @@ var router = express.Router();
 const fs = require("fs");
 var PropertiesReader = require("properties-reader");
 var properties = PropertiesReader("./config/api.properties");
+const members = require("./members.js");
 
 // TEST - config/json_clans_by_name.json
 const getJSONTestData = (req, res, next) => {
@@ -58,17 +59,13 @@ const getJSONReal = (req, res, next, clanname) => {
  * @param {*} next 
  */
 const getJSON = (req, res, next) => {
-    console.log("searchclans.js getJSON");
     var clanname = req.query.clanname;
     let properties = PropertiesReader("./config/api.properties");
     const DEBUG = properties.get("DEBUG");
-    console.log("DEBUG searchclans.js: " + DEBUG);
+    console.log("CLANNAME searchclans.js: name-> " + clanname + " DEBUG-> " + DEBUG);
     if (DEBUG == true) {
-        console.log("clanname: " + clanname);
         getJSONTestData(req, res, next);
     } else {
-        var clanname = req.query.clanname;
-        console.log("clanname: " + clanname);
         getJSONReal(req, res, next, clanname);
     }
 }

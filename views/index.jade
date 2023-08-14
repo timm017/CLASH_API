@@ -2,93 +2,29 @@ extends layout
 
 block content
   div(id="home-main-container")
-    h1 #{title} DEBUG: #{isDebug}
-        div(id="home-links")
-          p
-            form(action="members" method="get" id="clan-search-form")
-              button(id="clan-search") Search
-              input(value="#UVVQLY2" name="clantag" type="text" placeholder="Clan Tag")
-          p
-            form(action="searchclans" method="get" id="clan-search-form")
-              button(id="clan-search-by-name") Search by name
-              input(value="" name="clanname" type="text" placeholder="Clan Name")
-              input(name="byName" value="true" type="hidden")
-          if(showExamples === true)
-            div(class="example-container")
-              p(class="example") Old Rebels: 
-                a(href="./members?clantag=%232LPCCR8U") #2LPCCR8U
-              p(class="example") 50 Thieves: 
-                a(href="./members?clantag=%232L2JY80L2") #2L2JY80L2
-              p(class="example") Hell Drinkers: 
-                a(href="./members?clantag=%23UVVQLY2") #UVVQLY2
+    div(id="home-title")
+      h1 #{title}
+      div(class="search-forms-container")
         div
-          h2 Top Rankings
-        div(id="home-main-stats-container")
-          div(id="home-top-clans" class="home-box-container")
-            h2 Highest Trophies (Clans)
-            each d, i in topClansHomeData
-              tr
-                div(class="top-item")
-                  td #{i + 1}
-                  td 
-                    img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
-                  td 
-                    a(href="./members?clantag=" + d.tag.replace('#', '%23')) #{d.name}
-                      span(class="clan-tag")  (#{d.tag})
-          div(id="home-top-players" class="home-box-container")
-              h2 Highest Trophies (Players)
-              each d, i in topPlayersHomeData
-                tr
-                  div(class="top-item")
-                    td #{i + 1}
-                    td 
-                      img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
-                    td 
-                      a(href="./members?clantag=" + d.tag.replace('#', '%23')) #{d.name}
-                        span(class="clan-tag") (#{d.tag})
-            div(id="home-top-versus" class="home-box-container")
-              h2 Highest Trophies (Versus)
-              each d, i in topVersusHomeData
-                tr
-                  div(class="top-item")
-                    td #{i + 1}
-                    td 
-                      img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
-                    td 
-                      a(href="./members?clantag=" + d.tag.replace('#', '%23')) #{d.name}
-                        span(class="clan-tag") (#{d.tag})
-                    div(id="home-main-stats-container")
-          div(id="home-top-clans" class="home-box-container")
-            h2 Highest Trophies (Clans)
-            each d, i in topClansHomeData
-              tr
-                div(class="top-item")
-                  td #{i + 1}
-                  td 
-                    img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
-                  td 
-                    a(href="./members?clantag=" + d.tag.replace('#', '%23')) #{d.name}
-                      span(class="clan-tag") (#{d.tag})
-          div(id="home-top-players" class="home-box-container")
-              h2 Highest Trophies (Players)
-              each d, i in topPlayersHomeData
-                tr
-                  div(class="top-item")
-                    td #{i + 1}
-                    td 
-                      img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
-                    td 
-                      a(href="./members?clantag=" + d.tag.replace('#', '%23')) #{d.name}
-                        span(class="clan-tag") (#{d.tag})
-            div(id="home-top-versus" class="home-box-container")
-              h2 Highest Trophies (Versus)
-              each d, i in topVersusHomeData
-                tr
-                  div(class="top-item")
-                    td #{i + 1}
-                    td 
-                      img(src="#{d.badgeUrls.small}" class="clan-badge" alt="Clan badge")
-                    td 
-                      a(href="./members?clantag=" + d.tag.replace('#', '%23')) #{d.name}
-                        span(class="clan-tag") (#{d.tag})
-          
+          input(type="radio" name="searchtype" value="tag" checked="true")
+          label(for="html") TAG
+          input(type="radio" name="searchtype" value="name")
+          label(for="css") NAME
+        div(id="search-form-name" class="search-form")
+          form(action="searchclans" method="get" id="clan-search-form")
+            button(id="clan-search" class="search-button") Search
+            input(name="clanname" type="text" placeholder="Clan Name")
+        div(id="search-form-tag" class="search-form")
+          form(action="members" method="get" id="clan-search-form")
+            button(id="clan-search" class="search-button") Search
+            input(name="clantag" type="text" placeholder="Clan Tag")
+        if(showExamples === true)
+        h3 Examples
+        div(id="search-examples")
+          div(class="example-container")
+            p(class="example") Old Rebels: 
+              a(href="./members?clantag=%232LPCCR8U") #2LPCCR8U
+            p(class="example") 50 Thieves: 
+              a(href="./members?clantag=%232L2JY80L2") #2L2JY80L2
+            p(class="example") Hell Drinkers: 
+              a(href="./members?clantag=%23UVVQLY2") #UVVQLY2

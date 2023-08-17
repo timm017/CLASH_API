@@ -1,19 +1,19 @@
 extends layout
 
 block content
-  div(id="members-container")
+  div(id="top-players-container")
     if(membersDataLen == 0)
       p(class="error") No players found
     else
       div(class="inner-container")
-        table(id="members-table")
+        table(id="top-players-table")
           thead
             tr0
               th rank
               th name
               th exp
               th trophies
-              th clan
+              //- th clan
           tbody
             each d, i in topPlayersData
               tr
@@ -22,8 +22,8 @@ block content
                   a(href="./member?usertag=" + d.tag.replace('#', '%23')) #{d.name}
                 td #{d.expLevel} 
                 td #{d.trophies}
-                td 
-                  a(href="./members?clantag=" + d.clan.tag.replace('#', '%23')) #{d.clan.name}
-                  img(src="#{d.clan.badgeUrls.small}")
+                //- td 
+                //-   a(href="./members?clantag=" + d.clan.tag.replace('#', '%23')) #{d.clan.name}
+                  //- img(src="#{d.clan.badgeUrls.small}")
         if (showJSON == "t")
           code #{JSON.stringify(topPlayersData)}

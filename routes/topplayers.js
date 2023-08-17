@@ -26,7 +26,7 @@ const getJSONReal = (req, res, next) => {
     const today = new Date();
     const season = today.getFullYear() + "-0" + today.getMonth();
     const URL_TOP_PLAYERS = BASE_URL + "leagues/" + LEGEND_LEAGUE_ID + "/seasons/" + season + "?limit=" + LIMIT;
-    console.log("getJSON.URL: " + URL_TOP_PLAYERS);
+    console.log("topplayers-> getJSON.URL: " + URL_TOP_PLAYERS);
     let reqInstance = axios.create({
         headers: {
             Authorization: `Bearer ${HOME_COC_TOKEN}`,
@@ -35,8 +35,8 @@ const getJSONReal = (req, res, next) => {
     reqInstance
         .get(URL_TOP_PLAYERS)
         .then((res) => {
-            console.log('res.data: ' + JSON.stringify(res.data));
             req.m = res.data;
+            console.log(req.m);
             next();
         })
         .catch((err) => {

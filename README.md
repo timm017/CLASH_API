@@ -5,9 +5,9 @@ TODO:
   [?] "i" info icon to show detail stats
 [] HOME UI
   [] top 5 - players, clans, versus
-  [] create toggle to search "TAG vs NAME"
-    [] TAG
-    [] NAME
+  [X] create toggle to search "TAG vs NAME"
+    [X] TAG
+    [X] NAME
   [X] Search clan
   [] Search player
   [] footer (share with header nav)

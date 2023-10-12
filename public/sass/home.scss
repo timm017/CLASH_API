@@ -91,4 +91,26 @@ div#home-main-container {
       }
     }
   }
+
+  div#top-num-container {
+    display: flex;
+    flex-direction: row;
+
+    a.top-num-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 5px;
+      font-size: 25px;
+      background: gray;
+      height: 50px;
+      border: 2px solid;
+
+      &:hover {
+        background: red;
+      }
+    }
+  }
+
 }

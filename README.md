@@ -1,22 +1,3 @@
-# CLASH_API
-Clash of clans API to display information about the game.
-
-Create "config" folder add "api.properties" (contains keys/tokens).
-
-# TODO: Update package.json so can just do "npm install"
-npm install axios
-npm install properties-reader
-# used for package.json npm start
-npm install concurrently
-
-# Notes
-/leagues/29000022/seasons/2023-06
-leagueId = 29000022
-seasonId = 2023-06
-
-To run:
-node app.js
-
 TODO:
 [] Members/clan page
   [X] Add Clan name to members page
@@ -50,3 +31,22 @@ TODO:
 
 [] locations list let use pick
   [] USA = 32000001
+
+# CLASH_API
+Clash of clans API to display information about the game.
+
+Create "config" folder add "api.properties" (contains keys/tokens).
+
+# TODO: Update package.json so can just do "npm install"
+npm install axios
+npm install properties-reader
+# used for package.json npm start
+npm install concurrently
+
+# Notes
+/leagues/29000022/seasons/2023-06
+leagueId = 29000022
+seasonId = 2023-06
+
+To run:
+node app.js

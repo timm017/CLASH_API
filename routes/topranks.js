@@ -53,7 +53,7 @@ const getJSONTestDataLvl = (req, res, next) => {
  */
 const getJSONRealTrophies = (req, res, next) => {
   var properties = PropertiesReader("./config/api.properties");
-  const minClanPoints = 57000;
+  const minClanPoints = 55000;
   const minClanLevel = 10;
   const limit = 45;
   const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");

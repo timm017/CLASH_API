@@ -1,3 +1,6 @@
+BUGS:
+[] Top Clans link broken
+
 TODO:
 [] Members/clan page
   [X] Add Clan name to members page
@@ -5,10 +8,6 @@ TODO:
   [?] "i" info icon to show detail stats
 [] HOME UI
   [] top 5 - players, clans, versus
-  [X] create toggle to search "TAG vs NAME"
-    [X] TAG
-    [X] NAME
-  [X] Search clan
   [] Search player
   [] footer (share with header nav)
 [] PLAYERS
@@ -20,7 +19,6 @@ TODO:
 [] split up VERSUS and VILLAGE
 [] clan info - need clan name at top and stats
 [] home page tops, link clans and players
-[X] favicon
 [] robots.txt
 [] certbot SSL
 [] refactor "members" to "players" to be consistent with API call
@@ -31,6 +29,7 @@ TODO:
 
 [] locations list let use pick
   [] USA = 32000001
+
 
 # CLASH_API
 Clash of clans API to display information about the game.

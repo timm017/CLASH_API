@@ -6,9 +6,9 @@ block content
       h1 #{title}
       div(class="search-forms-container")
         div
-          input(type="radio" name="searchtype" value="tag" checked="true")
+          input(type="radio" id="searchtag" name="searchtype" value="tag" checked="true")
           label(for="html") TAG
-          input(type="radio" name="searchtype" value="name")
+          input(type="radio" id="searchname" name="searchtype" value="name")
           label(for="css") NAME
         div(id="search-form-name" class="search-form")
           form(action="searchclans" method="get" id="clan-search-form")
@@ -19,7 +19,7 @@ block content
             button(id="clan-search" class="search-button") Search
             input(name="clantag" type="text" placeholder="Clan Tag")
         if(showExamples === true)
-        h3 Examples
+        h3 Examples:
         div(id="search-examples")
           div(class="example-container")
             p(class="example") Old Rebels: 
@@ -28,9 +28,10 @@ block content
               a(href="./members?clantag=%232L2JY80L2") #2L2JY80L2
             p(class="example") Hell Drinkers: 
               a(href="./members?clantag=%23UVVQLY2") #UVVQLY2
-        div(id="top-num-container")
-          a(class="top-num-item") Top 5 Clans
-          a(class="top-num-item") Top 5 Clans
-          a(class="top-num-item") Top 5 Clans
-          a(class="top-num-item") Top 5 Clans
-          a(class="top-num-item") Top 5 Clans
+        //- div(id="top-num-container")
+        //-   p Top 5
+        //-     a(class="top-num-item") Clans
+        //-     a(class="top-num-item") Players
+        //-     a(class="top-num-item") WinsClans
+        //-     a(class="top-num-item") XP
+        //-     a(class="top-num-item") Top 5 Clans

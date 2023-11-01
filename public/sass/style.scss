@@ -10,12 +10,17 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   // background: url(../images/coc2_bg.jpg);
   // background-repeat: no-repeat;
+
+  table tr {
+    text-align: center;
+  }
 }
 
 div#main-body {
   display: flex;
   margin-top: 50px;
   justify-content: center;
+
   .inner-container {
     margin-bottom: 50px;
   }
@@ -154,6 +159,7 @@ nav {
  ***************************/
 div#league-container {
   padding-bottom: 50px;
+
   table#league-table {
     tr {
       display: flex;

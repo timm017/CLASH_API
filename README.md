@@ -1,7 +1,5 @@
 BUGS:
 [] Top Clans link broken *** need to lower trophies in beginning TODO limit 20
-[] topplayers.js - need to pad with '0' if single digit month
-
 
 TODO:
 [] Members/clan page

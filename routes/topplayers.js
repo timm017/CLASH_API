@@ -24,8 +24,11 @@ const getJSONReal = (req, res, next) => {
     const BASE_URL = properties.get("BASE_URL");
     const LEGEND_LEAGUE_ID = properties.get("LEGEND_LEAGUE_ID");
     const today = new Date();
-    // TODO: need to pad with '0' if single digit month
-    const season = today.getFullYear() + "-" + today.getMonth();
+    let month = today.getMonth();
+    if (month < 10) {
+        month = "0" + month;
+    }
+    const season = today.getFullYear() + "-" + month;
     const URL_TOP_PLAYERS = BASE_URL + "leagues/" + LEGEND_LEAGUE_ID + "/seasons/" + season + "?limit=" + LIMIT;
     console.log("topplayers-> getJSON.URL: " + URL_TOP_PLAYERS);
     let reqInstance = axios.create({

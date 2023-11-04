@@ -68,7 +68,6 @@ const getJSONRealTrophies = (req, res, next) => {
   reqInstance
     .get(URL_CLANS)
     .then((res) => {
-      console.log('myData: ' + res.data.data);
       // sort by clan points
       res.data.items.sort(function (a, b) {
         return b.clanPoints - a.clanPoints;

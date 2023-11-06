@@ -2,6 +2,7 @@ BUGS:
 [] Top Clans link broken *** need to lower trophies in beginning TODO limit 20
 
 TODO:
+[] Google analytcis (node package?)
 [] Members/clan page
   [X] Add Clan name to members page
   [X] add war record

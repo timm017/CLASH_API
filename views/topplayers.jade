@@ -8,16 +8,19 @@ block content
       div(class="inner-container")
         table(id="top-players-table")
           thead
-            tr0
-              th rank
-              th name
-              th exp
-              th trophies
-              //- th clan
+            tr
+              th Rank
+              th Clan?
+              th Name
+              th Exp
+              th Trophies
+              th clan
           tbody
             each d, i in topPlayersData
               tr
                 td #{d.rank}
+                td 
+                  img(src="#{d.clan.badgeUrls.small}" class="clan-badge" alt="Clan badge")
                 td
                   a(href="./member?usertag=" + d.tag.replace('#', '%23')) #{d.name}
                 td #{d.expLevel} 
@@ -25,5 +28,7 @@ block content
                 //- td 
                 //-   a(href="./members?clantag=" + d.clan.tag.replace('#', '%23')) #{d.clan.name}
                   //- img(src="#{d.clan.badgeUrls.small}")
+                td
+                  a(href="./members?clantag=#{d.tag.replace('#', '%23')}" class="clan-name") #{d.clan.name}
         if (showJSON == "t")
           code #{JSON.stringify(topPlayersData)}

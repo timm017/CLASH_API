@@ -1,6 +1,13 @@
+BUGS:
+[] Top Clans link broken *** need to lower trophies in beginning TODO limit 20
+
 TODO:
+[] Google analytcis (node package?)
 [] Members/clan page
   [?] "i" info icon to show detail stats
+  [X] Add Clan name to members page
+  [X] add war record
+  [?] "i" info icon to show detail stats 
 [] HOME UI
   [] top 5 - players, clans, versus
   [] Search player
@@ -11,11 +18,14 @@ TODO:
   [] most wins
 [] PLAYERS
   [] Highest XP
-  [] Most trophies
+  [X] Most trophies
   [] Most war stars
 [] Error handling
+[X] Error handling
+[X] add "showJSON=t" to display JSON results on page
+>>>>>>> 9299b4e4b7da73e82ee4dedcee445f19f5197d8f
 [] split up VERSUS and VILLAGE
-[] clan info - need clan name at top and stats
+[X] clan info - need clan name at top and stats
 [] home page tops, link clans and players
 [] robots.txt
 [] certbot SSL
@@ -26,6 +36,7 @@ TODO:
 
 [] locations list let use pick
   [] USA = 32000001
+
 
 # CLASH_API
 Clash of clans API to display information about the game.

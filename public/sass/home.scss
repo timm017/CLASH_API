@@ -28,6 +28,10 @@ div#home-main-container {
         width: 500px;
         border-radius: 10px;
         padding: 7px;
+
+        &.error {
+          border-color: red;
+        }
       }
     }
   }

@@ -2,9 +2,8 @@ BUGS:
 [] Top Clans link broken *** need to lower trophies in beginning TODO limit 20
 
 TODO:
-[] Google analytcis (node package?)
+[X] Google analytcis (node package?)
 [] Members/clan page
-  [?] "i" info icon to show detail stats
   [X] Add Clan name to members page
   [X] add war record
   [?] "i" info icon to show detail stats 
@@ -12,26 +11,22 @@ TODO:
   [] top 5 - players, clans, versus
   [] Search player
   [] footer (share with header nav)
-[] CLANS
-  [] Clan search - input field to lookup clan info
-  [] longest win streak
-  [] most wins
 [] PLAYERS
   [] Highest XP
   [X] Most trophies
   [] Most war stars
-[] Error handling
 [X] Error handling
 [X] add "showJSON=t" to display JSON results on page
 [] split up VERSUS and VILLAGE
 [X] clan info - need clan name at top and stats
 [X] home page tops, link clans and players
-[] robots.txt
-[] sitemap
-[X] certbot SSL
+[] home page tops, link clans and players
+[X] robots.txt
+[x] certbot SSL
 [] refactor "members" to "players" to be consistent with API call
 [] footer & header links shared
 [] Sortable table columns
+[] Clan search - input field to lookup clan info
 [] Build and deploy from GIT
 
 [] locations list let use pick

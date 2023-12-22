@@ -23,12 +23,12 @@ TODO:
 [] Error handling
 [X] Error handling
 [X] add "showJSON=t" to display JSON results on page
->>>>>>> 9299b4e4b7da73e82ee4dedcee445f19f5197d8f
 [] split up VERSUS and VILLAGE
 [X] clan info - need clan name at top and stats
-[] home page tops, link clans and players
+[X] home page tops, link clans and players
 [] robots.txt
-[] certbot SSL
+[] sitemap
+[X] certbot SSL
 [] refactor "members" to "players" to be consistent with API call
 [] footer & header links shared
 [] Sortable table columns

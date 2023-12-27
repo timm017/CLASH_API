@@ -19,6 +19,7 @@ TODO:
 [X] add "showJSON=t" to display JSON results on page
 [] split up VERSUS and VILLAGE
 [X] clan info - need clan name at top and stats
+[X] home page tops, link clans and players
 [] home page tops, link clans and players
 [X] robots.txt
 [x] certbot SSL

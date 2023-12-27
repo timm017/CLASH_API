@@ -20,6 +20,7 @@ const getJSONTestDataTopClans = (req, res, next) => {
 }
 
 const getJSONTestDataTopPlayers = (req, res, next) => {
+  // helper.helloWorld();
   const TEST_DATA_DIR = properties.get("TEST_DATA_DIR");
   fs.readFile(TEST_DATA_DIR + "json_topranks.json", "utf8", function (err, data) {
     if (err) {

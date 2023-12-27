@@ -4,6 +4,7 @@ var router = express.Router();
 const fs = require("fs");
 var PropertiesReader = require("properties-reader");
 var properties = PropertiesReader("./config/api.properties");
+var helper = require("../utils/helper");
 
 // TEST - config/json_members.json
 const getJSONTestData = (req, res, next) => {
@@ -51,7 +52,8 @@ const getJSON = (req, res, next) => {
   let properties = PropertiesReader("./config/api.properties");
   const DEBUG = properties.get("DEBUG");
   var clantag = req.query.clantag;
-  console.log("DEBUG members.js: CLANTAG-> " + clantag + " DEBUG-> " + DEBUG);
+  helper.helloWorld();
+  console.log("11DEBUG members.js: CLANTAG-> " + clantag + " DEBUG-> " + DEBUG);
   if (DEBUG == true) {
     getJSONTestData(req, res, next);
   } else {

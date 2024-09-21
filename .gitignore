@@ -2,6 +2,10 @@ bin
 config/api.properties
 public/css
 
+# apache
+.htaccess
+.well-known/
+
 # Logs
 logs
 *.log

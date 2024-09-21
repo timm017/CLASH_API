@@ -1,12 +1,14 @@
 BUGS:
 [] Top Clans link broken *** need to lower trophies in beginning TODO limit 20
+[] trim clan search string
 
 TODO:
+[] apache redirect "clash.tjmothy.com" and "tjmothy.com" to HTTPS
 [X] Google analytcis (node package?)
-[] Members/clan page
+[] Members/clan page:
   [X] Add Clan name to members page
   [X] add war record
-  [?] "i" info icon to show detail stats 
+  [] "i" info icon to show detail stats 
 [] HOME UI
   [] top 5 - players, clans, versus
   [] Search player
@@ -32,6 +34,13 @@ TODO:
 [] locations list let use pick
   [] USA = 32000001
 
+# LIVE
+ssh tim@tjmothy.com
+check if screen exists
+  screen -ls 
+if not create
+  screen -S clashnpm
+  npm run start:scss >> npm run start:run
 
 # CLASH_API
 Clash of clans API to display information about the game.
@@ -51,3 +60,8 @@ seasonId = 2023-06
 
 To run:
 node app.js
+# does both
+npm run start
+# for some reason need to do separate on server (concurrnecy?)
+npm run start:scss
+npm run start:run

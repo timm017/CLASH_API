@@ -19,7 +19,7 @@ const getJSONTestData = (req, res, next) => {
 
 const getJSONReal = (req, res, next) => {
     let properties = PropertiesReader("./config/api.properties");
-    const LIMIT = 20;
+    const LIMIT = 100;
     const HOME_COC_TOKEN = properties.get("HOME_COC_TOKEN");
     const BASE_URL = properties.get("BASE_URL");
     const LEGEND_LEAGUE_ID = properties.get("LEGEND_LEAGUE_ID");
@@ -45,7 +45,8 @@ const getJSONReal = (req, res, next) => {
         })
         .catch((err) => {
             req.m = "";
-            next();
+            console.error(err);  // Log the error for debugging
+            // next();
             res.redirect('/error');
         });
 };

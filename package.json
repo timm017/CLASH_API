@@ -8,6 +8,7 @@
     "start:run": "node ./app.js"
   },
   "dependencies": {
+    "@google-analytics/data": "^4.9.0",
     "axios": "^0.27.2",
     "concurrently": "^7.6.0",
     "cookie-parser": "~1.4.4",
@@ -19,6 +20,8 @@
     "jsdom": "^21.1.1",
     "morgan": "~1.9.1",
     "properties-reader": "^2.2.0",
+    "react-ga": "^3.3.1",
+    "react-ga4": "^2.1.0",
     "sass": "^1.57.1"
   }
 }

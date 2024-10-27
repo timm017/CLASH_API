@@ -65,3 +65,10 @@ npm run start
 # for some reason need to do separate on server (concurrnecy?)
 npm run start:scss
 npm run start:run
+
+# Block IP
+by range .*
+sudo iptables -A INPUT -s 85.208.96.0/24 -j DROP
+
+Single IP
+sudo iptables -A INPUT -s 85.208.96.11 -j DROP

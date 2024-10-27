@@ -1,4 +1,3 @@
-var PropertiesReader = require("properties-reader");
 var createError = require("http-errors");
 var express = require("express");
 var path = require("path");
@@ -15,41 +14,9 @@ var errorRouter = require("./routes/error");
 var topPlayersRouter = require("./routes/topplayers");
 var clansByName = require("./routes/searchclans");
 
-const { BetaAnalyticsDataClient } = require('@google-analytics/data')
-
 var app = express();
 
 const port = 3001;
-
-// Load Google Analytics Measurement ID and API Secret
-let properties = PropertiesReader("./config/api.properties");
-const MEASUREMENT_ID = properties.get("MEASUREMENT_ID");
-
-// Initialize the Analytics Data API client
-const analyticsDataClient = new BetaAnalyticsDataClient();
-
-// Helper function to send a custom event to Google Analytics
-const trackEvent = async (clientId, eventName, params = {}) => {
-  try {
-    await analyticsDataClient.runReport({
-      property: `properties/${MEASUREMENT_ID}`,  // Replace with your property ID
-      request: {
-        events: [
-          {
-            name: eventName,
-            params: {
-              ...params,
-              client_id: clientId,
-            },
-          },
-        ],
-      },
-    });
-    console.log(`Event "${eventName}" tracked successfully.`);
-  } catch (error) {
-    console.error("Error tracking event:", error);
-  }
-};
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -89,20 +56,6 @@ app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render("error");
-});
-
-// Example endpoint to track a page view
-app.get('/trackPage', async (req, res) => {
-  const clientId = req.query.clientId || 'default_client_id';
-  await trackEvent(clientId, 'page_view', { page_title: 'Home Page' });
-  res.send("Page view tracked!");
-});
-
-// Example endpoint to track a custom event, like "user_signup"
-app.post('/trackSignup', async (req, res) => {
-  const clientId = req.body.clientId || 'default_client_id';
-  await trackEvent(clientId, 'user_signup', { user_role: 'standard' });
-  res.send("Signup event tracked!");
 });
 
 module.exports = app;
